@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Ya es tuya · Activación Tikún 33</title>
+<meta name="robots" content="noindex">
+<meta name="theme-color" content="#000000">
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-9VWRS6D6M5"></script>
+<script>
+window.dataLayer=window.dataLayer||[];
+function gtag(){dataLayer.push(arguments);}
+gtag('js',new Date());
+gtag('config','G-9VWRS6D6M5');
+const PENDIENTE = new URLSearchParams(location.search).get('estado')==='pendiente';
+gtag('event', PENDIENTE ? 'compra_pendiente' : 'compra_confirmada');
+</script>
+<link rel="icon" href="/img/favicon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;600&family=EB+Garamond:ital,wght@0,400;0,500;1,400&display=swap" rel="stylesheet">
+<style>
+:root{
+  --black:#000;
+  --ink:#EDEAE2;
+  --dim:#C9C4B8;
+  --line:rgba(237,234,226,.35);
+  --gold:#D9B26A;
+  --display:'Cinzel',Georgia,'Times New Roman',serif;
+  --serif:'EB Garamond',Garamond,Georgia,'Times New Roman',serif;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+body{background:var(--black);color:var(--ink);font-family:var(--serif);font-size:21px;line-height:1.55;padding:env(safe-area-inset-top) 0 env(safe-area-inset-bottom)}
+img{max-width:100%;height:auto;display:block}
+[hidden]{display:none!important}
+:focus-visible{outline:2px solid var(--ink);outline-offset:3px}
+.wrap{max-width:640px;margin:0 auto;padding:36px 20px 56px}
+h1,h2{font-family:var(--display);font-weight:600;letter-spacing:.02em;line-height:1.15}
+h1{font-size:clamp(32px,8vw,44px);text-align:center;color:var(--gold);margin:14px 0 12px}
+h2{font-size:clamp(24px,5.6vw,30px);margin:40px 0 16px}
+p + p{margin-top:14px}
+.center{text-align:center}
+.dim{color:var(--dim)}
+.seal{font-size:46px;text-align:center}
+.voice{display:flex;align-items:center;gap:14px;width:100%;border:1.5px solid var(--ink);background:transparent;color:var(--ink);
+  font:inherit;font-size:20px;text-align:left;padding:12px 14px;margin:26px 0 0;cursor:pointer}
+.voice img{width:52px;height:52px;border-radius:50%;border:1.5px solid var(--gold);object-fit:cover;flex:0 0 52px}
+.voice .play{flex:0 0 46px;height:46px;border-radius:50%;background:var(--gold);color:var(--black);display:grid;place-items:center;font-size:20px;margin-left:auto}
+.voice small{display:block;font-size:17px;color:var(--dim)}
+.step{border:1.5px solid var(--ink);padding:20px 18px;display:grid;grid-template-columns:48px 1fr;gap:14px;align-items:start}
+.step + .step{margin-top:14px}
+.step .n{width:44px;height:44px;border-radius:50%;background:var(--gold);color:var(--black);font-family:var(--display);font-size:22px;display:grid;place-items:center}
+.step b{font-family:var(--display);font-weight:600;font-size:20px;letter-spacing:.03em;display:block;margin-bottom:6px}
+.btn{display:block;width:100%;margin-top:16px;font-family:var(--serif);font-weight:500;font-size:22px;line-height:1.25;
+  color:var(--black);background:var(--gold);border:1.5px solid var(--gold);padding:18px;min-height:60px;text-align:center;text-decoration:none}
+.btn.ghost{background:transparent;color:var(--ink);border-color:var(--ink)}
+.tip{border-left:2px solid var(--gold);padding-left:16px;margin-top:30px}
+footer{border-top:1px solid var(--line);margin-top:48px;padding-top:24px;font-size:17px;color:var(--dim);text-align:center}
+</style>
+</head>
+<body>
+<main class="wrap">
+  <p class="seal" aria-hidden="true">✦</p>
+  <h1 id="title">Ya es tuya</h1>
+  <p class="center" id="intro">Tu <em>Activación Tikún 33</em> está confirmada. Aquí tienes los 3 pasos para empezar hoy mismo.</p>
+  <p class="center dim" id="pendingNote" hidden style="margin-top:14px">Si pagaste en efectivo o en una tienda, la confirmación puede tardar un poco. Apenas se apruebe, Hotmart te envía el correo del paso 1.</p>
+
+  <button class="voice" id="voice" type="button" hidden aria-pressed="false">
+    <img src="img/ernesto.webp" alt="" width="52" height="52" onerror="this.remove()">
+    <span>Un mensaje de Ernesto<small>1 minuto · sube el volumen</small></span>
+    <span class="play" id="voicePlay" aria-hidden="true">▶</span>
+  </button>
+  <audio id="voiceAudio" preload="metadata" src="audio/ernesto-bienvenida.mp3"></audio>
+
+  <h2>Tus 3 pasos</h2>
+
+  <div class="step">
+    <span class="n">1</span>
+    <div><b>Abre tu correo</b>En unos minutos te llega un correo de <b style="display:inline;font-family:var(--serif);font-size:inherit;letter-spacing:0">Hotmart</b> al correo que usaste para pagar. Si no lo ves, busca en <em>promociones</em> o <em>spam</em>.</div>
+  </div>
+
+  <div class="step">
+    <span class="n">2</span>
+    <div><b>Entra a tu acceso</b>Toca el botón del correo. La primera vez, Hotmart te pide crear una contraseña: anótala para volver cuando quieras.</div>
+  </div>
+
+  <div class="step">
+    <span class="n">3</span>
+    <div><b>Escucha tu audio</b>Busca un lugar tranquilo, ponte audífonos y escucha el audio de 33 minutos. Repítelo 21 días, a la misma hora si puedes. Las 8 guías están en el mismo acceso.</div>
+  </div>
+
+  <a class="btn" href="https://consumer.hotmart.com/" rel="noopener" target="_blank">Entrar a mi acceso en Hotmart</a>
+  <p class="center dim" style="font-size:17px;margin-top:10px">Entra con el mismo correo que usaste para pagar.</p>
+
+  <div class="tip">
+    <p><b style="font-family:var(--display);font-weight:600">Un consejo de Ernesto:</b> no esperes al momento perfecto. La primera escucha es la que abre el camino. Hazla hoy.</p>
+  </div>
+
+  <footer>
+    <p>¿Te arrepentiste? Tienes 7 días de garantía: pides el reembolso desde Hotmart y te devuelven el 100%.</p>
+    <p style="margin-top:8px">Código Abundante · Contenido de estudio y reflexión espiritual.</p>
+  </footer>
+</main>
+<script>
+if(PENDIENTE){
+  document.title='Tu pedido está reservado · Activación Tikún 33';
+  document.getElementById('title').textContent='Tu pedido está reservado';
+  document.getElementById('intro').innerHTML='Tu pago de la <em>Activación Tikún 33</em> está en proceso. Cuando se confirme, sigue estos 3 pasos.';
+  document.getElementById('pendingNote').hidden=false;
+}
+(function(){
+  const btn=document.getElementById('voice'), au=document.getElementById('voiceAudio'), ic=document.getElementById('voicePlay');
+  let played=false;
+  au.addEventListener('loadedmetadata',()=>{btn.hidden=false});
+  if(au.readyState>=1) btn.hidden=false;
+  au.addEventListener('play',()=>{ic.textContent='❚❚';btn.setAttribute('aria-pressed','true')});
+  au.addEventListener('pause',()=>{ic.textContent='▶';btn.setAttribute('aria-pressed','false')});
+  btn.addEventListener('click',()=>{
+    if(au.paused){ au.play().catch(()=>{}); if(!played){played=true;try{gtag('event','audio_bienvenida')}catch(_){}} }
+    else au.pause();
+  });
+})();
+</script>
+</body>
+</html>

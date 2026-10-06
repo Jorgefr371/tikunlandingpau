@@ -27,7 +27,7 @@ gtag('config','G-9VWRS6D6M5');
 :root{
   --black:#000;
   --ink:#EDEAE2;
-  --dim:#9A968D;
+  --dim:#C9C4B8;
   --line:rgba(237,234,226,.35);
   --line-soft:rgba(237,234,226,.16);
   --gold:#D9B26A;
@@ -77,20 +77,20 @@ p + p{margin-top:16px}
 .hero .lead{text-align:center;color:var(--dim);max-width:30em;margin:0 auto 28px}
 
 .date{display:grid;grid-template-columns:1fr 1.5fr 1.2fr;gap:10px}
-.field label{display:block;font-size:16px;color:var(--dim);margin-bottom:6px}
+.field label{display:block;font-size:18px;color:var(--dim);margin-bottom:6px}
 select,input[type=text],input[type=email]{
   width:100%;font:inherit;font-size:19px;color:var(--ink);background:var(--black);
   border:1.5px solid var(--line);border-radius:0;padding:12px 12px;appearance:none;-webkit-appearance:none}
 select{background-image:linear-gradient(45deg,transparent 50%,var(--ink) 50%),linear-gradient(-45deg,transparent 50%,var(--ink) 50%);background-position:calc(100% - 17px) 55%,calc(100% - 12px) 55%;background-size:5px 5px;background-repeat:no-repeat;padding-right:30px}
 select:focus,input:focus{border-color:var(--ink);outline:none}
-.btn{display:block;width:100%;margin-top:18px;font-family:var(--display);font-weight:600;font-size:18px;letter-spacing:.08em;
-  color:var(--black);background:var(--gold);border:1.5px solid var(--gold);padding:17px 18px;cursor:pointer;text-align:center;text-decoration:none;position:relative}
+.btn{display:block;width:100%;margin-top:18px;font-family:var(--serif);font-weight:500;font-size:22px;letter-spacing:.01em;line-height:1.25;
+  color:var(--black);background:var(--gold);border:1.5px solid var(--gold);padding:18px 18px;min-height:60px;cursor:pointer;text-align:center;text-decoration:none;position:relative}
 .btn:hover{background:#E8C98C}
 .btn.buy{animation:glow 2.6s ease-in-out infinite}
 @keyframes glow{0%,100%{box-shadow:0 0 0 0 rgba(217,178,106,0)}50%{box-shadow:0 0 22px 2px rgba(217,178,106,.45)}}
 .btn.ghost{background:transparent;color:var(--ink)}
 .btn.ghost:hover{background:var(--ink);color:var(--black)}
-.note{font-size:16px;color:var(--dim);text-align:center;margin-top:12px}
+.note{font-size:18px;color:var(--dim);text-align:center;margin-top:12px}
 .err{font-size:17px;color:var(--ink);border-left:2px solid var(--ink);padding-left:10px;margin-top:14px;display:none}
 
 /* ---------- Árbol ---------- */
@@ -155,7 +155,7 @@ select:focus,input:focus{border-color:var(--ink);outline:none}
 .codex img{aspect-ratio:1;object-fit:cover;width:100%}
 .codex div{padding:12px 12px 14px}
 .codex h3{font-size:16px;line-height:1.25;margin-bottom:6px}
-.codex p{font-size:16px;color:var(--dim);line-height:1.4}
+.codex p{font-size:17px;color:var(--dim);line-height:1.4}
 
 /* ---------- Redes ---------- */
 .nets{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:22px}
@@ -163,7 +163,7 @@ select:focus,input:focus{border-color:var(--ink);outline:none}
 .nets a:hover{border-color:var(--ink)}
 .nets small{display:block;font-family:var(--serif);font-size:15px;color:var(--dim);letter-spacing:0;margin-top:2px}
 
-footer{border-top:1px solid var(--line-soft);padding:36px 0 48px;font-size:15px;color:var(--dim);text-align:center}
+footer{border-top:1px solid var(--line-soft);padding:36px 0 48px;font-size:17px;color:var(--dim);text-align:center}
 footer p + p{margin-top:8px}
 
 
@@ -192,17 +192,17 @@ footer p + p{margin-top:8px}
 .moments{margin:22px 0 6px;border:1px solid var(--line)}
 .moment{padding:16px 18px;display:grid;grid-template-columns:90px 1fr;gap:14px}
 .moment + .moment{border-top:1px solid var(--line-soft)}
-.moment .t{font-family:var(--display);font-size:15px;color:var(--dim);letter-spacing:.04em;padding-top:3px}
+.moment .t{font-family:var(--display);font-size:16px;color:var(--dim);letter-spacing:.04em;padding-top:3px}
 .moment b{font-family:var(--display);font-weight:600;font-size:17px;letter-spacing:.04em;display:block;margin-bottom:2px}
 .guides{display:grid;grid-template-columns:repeat(2,1fr);gap:6px 10px;margin:18px 0 4px}
 .guides figure{text-align:center}
 .guides img{width:100%;height:auto}
-.guides figcaption{font-size:15px;line-height:1.3;color:var(--dim);margin-top:-6px}
+.guides figcaption{font-size:17px;line-height:1.3;color:var(--dim);margin-top:-6px}
 .proof{margin-top:12px;border:1px solid var(--line)}
 .proof figcaption{font-size:15px;color:var(--dim);padding:10px 14px;border-top:1px solid var(--line-soft)}
 .price{border:1.5px solid var(--ink);padding:28px 22px;text-align:center;margin-top:40px}
 .price .amt{font-family:var(--display);font-size:52px;line-height:1;margin:10px 0 4px}
-.price .sub{font-size:17px;color:var(--dim)}
+.price .sub{font-size:18px;color:var(--dim)}
 .steps{counter-reset:s;list-style:none;margin-top:12px}
 .steps li{counter-increment:s;display:grid;grid-template-columns:34px 1fr;gap:10px;margin-bottom:12px}
 .steps li:before{content:counter(s);font-family:var(--display);width:28px;height:28px;border:1.5px solid var(--ink);border-radius:50%;display:grid;place-items:center;font-size:15px;margin-top:2px}
@@ -218,7 +218,7 @@ details p{margin-top:10px;color:var(--ink)}
 .sticky{position:fixed;left:0;right:0;bottom:0;background:var(--black);border-top:1.5px solid var(--ink);padding:10px 16px calc(10px + env(safe-area-inset-bottom));display:none;align-items:center;gap:14px;z-index:10}
 .sticky.show{display:flex}
 .sticky .p{font-family:var(--display);font-size:20px;white-space:nowrap}
-.sticky .btn{margin:0;padding:13px 12px;font-size:16px}
+.sticky .btn{margin:0;padding:12px 12px;min-height:52px;font-size:19px}
 .softbox{border:1px dashed var(--line);padding:22px 20px;margin-top:40px}
 .softbox h3{font-size:19px}
 #notyet{display:none;border-left:2px solid var(--ink);padding-left:14px;margin-bottom:22px}
@@ -231,7 +231,7 @@ details p{margin-top:10px;color:var(--ink)}
 .reveal .r1,.reveal .r2{font-family:var(--display);font-size:17px;letter-spacing:.04em;line-height:1.7;min-height:1.7em;word-break:break-word}
 .reveal .r2{color:var(--gold)}
 .reveal .tree{max-width:130px;margin-top:10px}
-.social{font-size:16px;color:var(--dim);text-align:center;margin-top:6px}
+.social{font-size:18px;color:var(--dim);text-align:center;margin-top:6px}
 
 /* ---------- No es tu culpa ---------- */
 .nofault{margin-top:44px;border:1px solid var(--gold-soft);padding:24px 22px;text-align:center}
@@ -246,13 +246,13 @@ details p{margin-top:10px;color:var(--ink)}
 .letter blockquote{font-style:italic;font-size:22px;line-height:1.4;color:var(--gold);border-left:2px solid var(--gold);padding-left:14px;margin:18px 0}
 .letter .sign{font-style:italic;margin-top:18px}
 .bonos{width:100%;margin:18px 0 8px}
-.glist{columns:2;column-gap:18px;font-size:16px;color:var(--dim);margin:6px 0 0 18px}
+.glist{columns:2;column-gap:18px;font-size:18px;color:var(--dim);margin:6px 0 0 18px}
 .glist li{break-inside:avoid;margin-bottom:4px}
 
 /* ---------- Muro de testimonios ---------- */
 .wall{display:grid;grid-template-columns:1fr;gap:12px;margin-top:14px}
 .wall figure{border:1px solid var(--line)}
-.wall-note{font-size:15px;color:var(--dim);margin-top:10px}
+.wall-note{font-size:17px;color:var(--dim);margin-top:10px}
 
 /* ---------- Anclaje de precio ---------- */
 .stack{list-style:none;text-align:left;margin:18px 0 6px;border-top:1px solid var(--line-soft)}
@@ -263,6 +263,26 @@ details p{margin-top:10px;color:var(--ink)}
 .tag{display:inline-block;font-family:var(--display);font-size:13px;letter-spacing:.14em;text-transform:uppercase;color:var(--black);background:var(--gold);padding:4px 10px;margin-top:14px}
 .price .amt{color:var(--gold)}
 .price{border-color:var(--gold)}
+/* ---------- Oferta: primera pantalla ---------- */
+.offer-top{text-align:center;border:1.5px solid var(--gold);padding:26px 20px 24px}
+.offer-top .eyebrow{font-family:var(--display);font-size:16px;letter-spacing:.14em;text-transform:uppercase;color:var(--gold)}
+.offer-top h2{margin:10px 0 16px}
+.offer-top .what{font-size:20px;margin-bottom:18px}
+.offer-top .mini{font-size:19px;color:var(--dim)}
+.offer-top .mini s{font-family:var(--display)}
+.offer-top .now{font-family:var(--display);font-size:46px;line-height:1.05;color:var(--gold);margin:4px 0 2px}
+.voice{display:flex;align-items:center;gap:14px;width:100%;border:1.5px solid var(--ink);background:transparent;color:var(--ink);
+  font:inherit;font-size:20px;text-align:left;padding:12px 14px;margin:0 0 20px;cursor:pointer}
+.voice img{width:52px;height:52px;border-radius:50%;border:1.5px solid var(--gold);object-fit:cover;flex:0 0 52px}
+.voice .play{flex:0 0 46px;height:46px;border-radius:50%;background:var(--gold);color:var(--black);display:grid;place-items:center;font-size:20px;margin-left:auto}
+.voice small{display:block;font-size:17px;color:var(--dim)}
+.paynote{font-size:17px;color:var(--dim);text-align:center;margin-top:12px;line-height:1.45}
+.paynote b{color:var(--ink);font-weight:500}
+.letter details{border:none;padding:0;margin-top:12px}
+.letter summary{font-family:var(--serif);font-size:19px;color:var(--gold);justify-content:flex-start;gap:8px}
+.letter summary:after{content:''}
+.letter details[open] summary{display:none}
+
 @media (min-width:600px){
   .wall{grid-template-columns:1fr 1fr}
   .ask .row{grid-template-columns:1fr 1fr}
@@ -370,29 +390,43 @@ details p{margin-top:10px;color:var(--ink)}
 <!-- ================= PASO 2: TU ACTIVACIÓN ================= -->
 <section id="activacion">
   <div class="wrap">
-    <div class="letter rv">
-      <div class="who">
-        <img src="img/ernesto.webp" alt="Ernesto, el abuelo detrás de Código Abundante" width="72" height="72" onerror="this.remove()">
-        <div><b>Ernesto</b><span>Por qué existe esta página</span></div>
+    <div class="offer-top">
+      <p class="eyebrow" id="offEyebrow"></p>
+      <h2 id="offTitle"></h2>
+      <button class="voice" id="voice" type="button" hidden aria-pressed="false">
+        <img src="img/ernesto.webp" alt="" width="52" height="52" onerror="this.remove()">
+        <span>Escucha a Ernesto<small>1 minuto · sube el volumen</small></span>
+        <span class="play" id="voicePlay" aria-hidden="true">▶</span>
+      </button>
+      <audio id="voiceAudio" preload="metadata" src="audio/ernesto-activacion.mp3"></audio>
+      <p class="what">La <em>Activación Tikún 33</em>: un audio guiado de 33 minutos para escuchar 21 días, con un manual de 8 guías a color.</p>
+      <p class="mini">Valor total <s>$77 USD</s> · hoy</p>
+      <div class="now">$9.99 USD</div>
+      <p class="mini">Pago único · acceso inmediato · garantía de 7 días</p>
+      <a class="btn buy" href="#" rel="noopener">Sí, quiero mi activación</a>
+      <p class="paynote">Al tocar, pagas en <b>Hotmart</b>, la plataforma segura donde queda tu acceso. Te pide tu nombre, tu correo y la forma de pago, y ves el precio en tu moneda. Toma 1 minuto.</p>
+    </div>
+
+    <div class="block rv">
+      <h3>La voz del círculo</h3>
+      <div class="wall" id="wall">
+        <figure><img src="img/comentarios/comentario-3.webp" alt="Mensaje de un seguidor: hice el ritual con mucha fe, escribí la cantidad, puse el vaso con agua y sal sobre el papel y encendí la vela; la llama creció mientras decía la oración y se apagó sola al terminar." loading="lazy" width="738" height="680"></figure>
+        <figure><img src="img/comentarios/comentarios-facebook.jpg" alt="Comentarios en un video de Código Abundante en Facebook: Yo soy el que soy ahora y siempre; Sí hay un poder superior que me guía y abrió mis caminos; Yo soy el que soy, Ehyeh Asher en la zarza." loading="lazy" width="738" height="1070"></figure>
+        <figure><img src="img/comentarios/comentarios-youtube.jpg" alt="Comentarios en videos de Código Abundante en YouTube: Todos; Hecho está, amén; Amén, gracias por compartir, bendiciones." loading="lazy" width="1160" height="1390"></figure>
       </div>
-      <p>El sabio que ves en cada video tiene nombre: Ernesto, mi abuelo.</p>
-      <p>Toda su vida me habló de esto: del Árbol, de las esferas, de por qué a unos el dinero se les queda y a otros se les escapa aunque trabajen el doble. Yo lo escuchaba sin entender del todo. Hoy lo entiendo.</p>
-      <blockquote>«El dinero requiere una mente sabia y la energía espiritual correcta que sepa mantenerlo para que se multiplique.»</blockquote>
-      <p>Él ya no está, pero su voz sigue aquí. Esta página es mi forma de compartir lo que me enseñó con quien lo necesite. Si llegaste hasta este punto y te reconociste en tu mapa, creo que eres tú.</p>
-      <p class="sign">— María Paula, nieta de Ernesto</p>
+      <p class="wall-note">Mensajes y comentarios reales de nuestra comunidad. Nombres y fotos ocultos por privacidad.</p>
     </div>
 
-    <h2 id="offTitle"></h2>
-    <p>Leer tu mapa te muestra dónde se traba el flujo. Trabajarlo pide otra cosa: silencio, repetición y un momento en que la mente deja de pelear. Para eso existe la <em>Activación Tikún 33</em>.</p>
-    <p>Es un audio inmersivo de 33 minutos. Te pones audífonos, cierras los ojos y te dejas guiar. Se escucha durante 21 días, a la misma hora si puedes.</p>
-
-    <div class="moments">
-      <div class="moment"><span class="t">Min 1–11</span><div><b>Entrada</b>El cuerpo baja el ritmo. Respiración guiada hasta que la mente deja de hacer listas.</div></div>
-      <div class="moment"><span class="t">Min 11–22</span><div><b>Disolución</b><span id="offDissolve"></span></div></div>
-      <div class="moment"><span class="t">Min 22–33</span><div><b>Expansión</b>La vasija se abre. Terminas con una frase que llevas al resto del día.</div></div>
+    <div class="block rv">
+      <h3>Cómo funciona</h3>
+      <p>Leer tu mapa te muestra dónde se traba el flujo. Trabajarlo pide otra cosa: silencio, repetición y un momento en que la mente deja de pelear.</p>
+      <p>Te pones audífonos, cierras los ojos y te dejas guiar. Se escucha durante 21 días, a la misma hora si puedes.</p>
+      <div class="moments">
+        <div class="moment"><span class="t">Min 1–11</span><div><b>Entrada</b>El cuerpo baja el ritmo. Respiración guiada hasta que la mente deja de hacer listas.</div></div>
+        <div class="moment"><span class="t">Min 11–22</span><div><b>Disolución</b><span id="offDissolve"></span></div></div>
+        <div class="moment"><span class="t">Min 22–33</span><div><b>Expansión</b>La vasija se abre. Terminas con una frase que llevas al resto del día.</div></div>
+      </div>
     </div>
-
-    <a class="btn buy" href="#" rel="noopener" style="margin-top:26px">Sí, quiero trabajar mi Tikún</a>
 
     <div class="block rv">
       <h3>Qué recibes</h3>
@@ -404,20 +438,19 @@ details p{margin-top:10px;color:var(--ink)}
       </ul>
     </div>
 
-    <div class="block rv">
-      <h3>Lo que nos escriben</h3>
-      <div class="wall">
-        <figure><img src="img/comentarios/comentario-3.webp" alt="Mensaje de un seguidor: hice el ritual con mucha fe, escribí la cantidad, puse el vaso con agua y sal sobre el papel y encendí la vela; la llama creció mientras decía la oración y se apagó sola al terminar." loading="lazy" width="738" height="680"></figure>
-        <figure><img src="img/testimonios/t1.webp" alt="Mensaje de un seguidor" loading="lazy" onerror="this.parentNode.remove()"></figure>
-        <figure><img src="img/testimonios/t2.webp" alt="Mensaje de un seguidor" loading="lazy" onerror="this.parentNode.remove()"></figure>
-        <figure><img src="img/testimonios/t3.webp" alt="Mensaje de un seguidor" loading="lazy" onerror="this.parentNode.remove()"></figure>
-        <figure><img src="img/testimonios/t4.webp" alt="Mensaje de un seguidor" loading="lazy" onerror="this.parentNode.remove()"></figure>
-        <figure><img src="img/testimonios/t5.webp" alt="Mensaje de un seguidor" loading="lazy" onerror="this.parentNode.remove()"></figure>
-        <figure><img src="img/testimonios/t6.webp" alt="Mensaje de un seguidor" loading="lazy" onerror="this.parentNode.remove()"></figure>
-        <figure><img src="img/testimonios/t7.webp" alt="Mensaje de un seguidor" loading="lazy" onerror="this.parentNode.remove()"></figure>
-        <figure><img src="img/testimonios/t8.webp" alt="Mensaje de un seguidor" loading="lazy" onerror="this.parentNode.remove()"></figure>
+    <div class="letter rv">
+      <div class="who">
+        <img src="img/ernesto.webp" alt="Ernesto, el abuelo detrás de Código Abundante" width="72" height="72" onerror="this.remove()">
+        <div><b>Ernesto</b><span>Por qué existe esta página</span></div>
       </div>
-      <p class="wall-note">Mensajes reales de nuestra comunidad. Nombres y fotos ocultos por privacidad.</p>
+      <p>El sabio que ves en cada video tiene nombre: Ernesto, mi abuelo. Toda su vida me habló del Árbol y de por qué a unos el dinero se les queda y a otros se les escapa aunque trabajen el doble.</p>
+      <blockquote>«El dinero requiere una mente sabia y la energía espiritual correcta que sepa mantenerlo para que se multiplique.»</blockquote>
+      <details>
+        <summary>Leer la carta completa ›</summary>
+        <p>Yo lo escuchaba sin entender del todo. Hoy lo entiendo.</p>
+        <p>Él ya no está, pero su voz sigue aquí. Esta página es mi forma de compartir lo que me enseñó con quien lo necesite. Si llegaste hasta este punto y te reconociste en tu mapa, creo que eres tú.</p>
+      </details>
+      <p class="sign">— María Paula, nieta de Ernesto</p>
     </div>
 
     <div class="price rv" id="priceBox">
@@ -432,7 +465,7 @@ details p{margin-top:10px;color:var(--ink)}
       <div class="amt">$9.99 USD</div>
       <p class="sub">Pago único. Acceso inmediato.</p>
       <a class="btn buy" href="#" rel="noopener">Sí, quiero mi activación</a>
-      <p class="note">Pago seguro con Hotmart · Pagas en tu moneda · Garantía de 7 días</p>
+      <p class="paynote">Al tocar, pagas en <b>Hotmart</b>, la plataforma segura donde queda tu acceso. Ves el precio en tu moneda. Toma 1 minuto.</p>
     </div>
 
     <div class="guarantee">
@@ -444,7 +477,7 @@ details p{margin-top:10px;color:var(--ink)}
       <h3>Cómo lo recibes</h3>
       <ol class="steps">
         <li><span>Tocas el botón y pagas en Hotmart, con tarjeta u otros métodos según tu país.</span></li>
-        <li><span>En minutos te llega un correo de Hotmart con tu acceso. Revisa también promociones o spam.</span></li>
+        <li><span>Apenas pagas, te mostramos en pantalla los pasos exactos para entrar. Además te llega un correo de Hotmart con tu acceso. Revisa también promociones o spam.</span></li>
         <li><span>Te pones audífonos y escuchas. El manual con las 8 guías se descarga desde el mismo acceso.</span></li>
       </ol>
     </div>
@@ -455,9 +488,13 @@ details p{margin-top:10px;color:var(--ink)}
       <details><summary>¿Necesito saber de Kabbalah?</summary><p>No. El audio te guía de principio a fin, y el manual explica cada práctica paso a paso.</p></details>
       <details><summary>¿Cómo lo escucho?</summary><p>Desde tu celular o computador, con el acceso que te llega al correo. Puedes escucharlo las veces que quieras.</p></details>
       <details><summary>¿Y si no me sirve?</summary><p>Tienes 7 días de garantía. Pides el reembolso desde Hotmart y te devuelven el 100%.</p></details>
+      <details><summary>¿Cómo pago desde mi país?</summary><p>Hotmart te muestra el precio en tu moneda y los métodos de pago de tu país: tarjeta, PayPal y opciones locales, como Mercado Pago en México. Si eliges pagar en efectivo, tu acceso llega cuando el pago se confirma.</p></details>
+      <details><summary>¿Dónde me llega lo que compro?</summary><p>Apenas pagas, te mostramos en pantalla cómo entrar. También te llega un correo de Hotmart con tu acceso, donde están el audio y las 8 guías. Si no lo ves, revisa promociones o spam.</p></details>
+      <details><summary>¿Es un pago mensual?</summary><p>No. Pagas una sola vez y el acceso es tuyo.</p></details>
     </div>
 
     <a class="btn buy" href="#" rel="noopener" style="margin-top:34px">Sí, quiero trabajar mi Tikún</a>
+    <p class="paynote">Pago seguro en Hotmart · Precio en tu moneda · Garantía de 7 días</p>
 
     <div class="softbox" id="mapBox">
       <div id="mapForm">
@@ -651,6 +688,7 @@ function show(n, scroll=true){
   $('resRoot').textContent=t.root; $('resPracticeTitle').textContent='Práctica: '+t.pTitle;
   const ol=$('resPractice'); ol.innerHTML=''; t.practice.forEach(p=>{const li=document.createElement('li');li.textContent=p;ol.appendChild(li)});
   const img=$('resImg'); img.src=`img/tikun-${n}.webp`; img.alt=`Grabado del ${t.name}`;
+  $('offEyebrow').textContent=`Tu Tikún ${n} · ${t.esfera}`;
   $('offTitle').textContent=`Tu Tikún ${n} tiene una forma de trabajarse`;
   $('offDissolve').textContent=t.dissolve;
   document.querySelectorAll('.buy').forEach(a=>a.href=`${HOTMART_URL}?sck=tikun-${n}`);
@@ -678,11 +716,27 @@ document.getElementById('notQuite').addEventListener('click',()=>{
 document.querySelectorAll('.buy').forEach(a=>a.addEventListener('click',()=>track('click_comprar',{tikun:current,ubicacion:a.closest('#sticky')?'barra':'pagina'})));
 /* Barra fija de compra en celular: visible mientras la oferta está en pantalla y el precio no */
 (function(){
-  const sticky=document.getElementById('sticky'), act=document.getElementById('activacion'), price=document.getElementById('priceBox');
-  let inAct=false, inPrice=false;
-  const upd=()=>sticky.classList.toggle('show', inAct && !inPrice && act.classList.contains('show'));
+  const sticky=document.getElementById('sticky'), act=document.getElementById('activacion'), price=document.getElementById('priceBox'), top=document.querySelector('.offer-top');
+  let inAct=false, inPrice=false, inTop=false;
+  const upd=()=>sticky.classList.toggle('show', inAct && !inPrice && !inTop && act.classList.contains('show'));
   new IntersectionObserver(e=>{inAct=e[0].isIntersecting;upd()}).observe(act);
   new IntersectionObserver(e=>{inPrice=e[0].isIntersecting;upd()}).observe(price);
+  new IntersectionObserver(e=>{inTop=e[0].isIntersecting;upd()}).observe(top);
+})();
+
+/* Voz de Ernesto en la oferta: el botón solo aparece si el audio existe */
+(function(){
+  const btn=document.getElementById('voice'), au=document.getElementById('voiceAudio'), ic=document.getElementById('voicePlay');
+  let played=false;
+  au.addEventListener('loadedmetadata',()=>{btn.hidden=false});
+  if(au.readyState>=1) btn.hidden=false;
+  au.addEventListener('play',()=>{ic.textContent='❚❚';btn.setAttribute('aria-pressed','true')});
+  au.addEventListener('pause',()=>{ic.textContent='▶';btn.setAttribute('aria-pressed','false')});
+  au.addEventListener('ended',()=>track('audio_ernesto_fin',{tikun:current}));
+  btn.addEventListener('click',()=>{
+    if(au.paused){ au.play().catch(()=>{}); if(!played){played=true;track('audio_ernesto',{tikun:current})} }
+    else au.pause();
+  });
 })();
 
 /* Aparición suave de los bloques al hacer scroll */
@@ -734,7 +788,8 @@ document.getElementById('go').addEventListener('click',calcular);
 document.getElementById('quiz').addEventListener('submit',e=>{e.preventDefault();calcular()});
 
 /* Si llegan con ?tikun=N (por ejemplo desde un correo), mostrar el resultado */
-const qp=+new URLSearchParams(location.search).get('tikun'); if(qp>=1&&qp<=9){ show(qp,false); if(location.hash==='#activacion') document.getElementById('activacion').classList.add('show'); }
+const qp=+new URLSearchParams(location.search).get('tikun'), wantsOffer=location.hash==='#activacion';
+if(qp>=1&&qp<=9){ show(qp,false); if(wantsOffer){ document.getElementById('activacion').classList.add('show'); setURL(`?tikun=${qp}#activacion`); goTo(document.getElementById('activacion')); } }
 
 /* ===== Captura de correos (Brevo vía /api/subscribe) ===== */
 async function lead(form, payload, formWrap, okBox){
