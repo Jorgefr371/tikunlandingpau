@@ -13,7 +13,8 @@ function gtag(){dataLayer.push(arguments);}
 gtag('js',new Date());
 gtag('config','G-9VWRS6D6M5');
 const PENDIENTE = new URLSearchParams(location.search).get('estado')==='pendiente';
-gtag('event', PENDIENTE ? 'compra_pendiente' : 'compra_confirmada');
+let VARIANTE='desconocida'; try{ VARIANTE=localStorage.getItem('ab_variante')||'desconocida'; }catch(_){}
+gtag('event', PENDIENTE ? 'compra_pendiente' : 'compra_confirmada', {variante:VARIANTE});
 </script>
 <link rel="icon" href="/img/favicon.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -86,7 +87,7 @@ footer{border-top:1px solid var(--line);margin-top:48px;padding-top:24px;font-si
 
   <div class="step">
     <span class="n">3</span>
-    <div><b>Escucha tu audio</b>Busca un lugar tranquilo, ponte audífonos y escucha el audio de 33 minutos. Repítelo 21 días, a la misma hora si puedes. Las 8 guías están en el mismo acceso.</div>
+    <div><b>Escucha tu audio</b>Busca un lugar tranquilo, ponte audífonos y escucha el audio de 33 minutos. Repítelo 33 días, a la misma hora si puedes. Las 8 guías están en el mismo acceso.</div>
   </div>
 
   <a class="btn" href="https://consumer.hotmart.com/" rel="noopener" target="_blank">Entrar a mi acceso en Hotmart</a>

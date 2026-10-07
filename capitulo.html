@@ -1,0 +1,400 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Mensajes de Ernesto · Código Abundante</title>
+<meta name="robots" content="noindex">
+<meta name="theme-color" content="#000000">
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-9VWRS6D6M5"></script>
+<script>
+window.dataLayer=window.dataLayer||[];
+function gtag(){dataLayer.push(arguments);}
+gtag('js',new Date());
+gtag('config','G-9VWRS6D6M5');
+gtag('set','user_properties',{variante:'b'});
+</script>
+<link rel="icon" href="/img/favicon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;600&family=EB+Garamond:ital,wght@0,400;0,500;1,400&display=swap" rel="stylesheet">
+<style>
+:root{
+  --black:#000;
+  --ink:#EDEAE2;
+  --dim:#C9C4B8;
+  --line:rgba(237,234,226,.35);
+  --line-soft:rgba(237,234,226,.16);
+  --gold:#D9B26A;
+  --gold-soft:rgba(217,178,106,.35);
+  --bubble:#16130E;
+  --mine:#3A2F1A;
+  --display:'Cinzel',Georgia,'Times New Roman',serif;
+  --serif:'EB Garamond',Garamond,Georgia,'Times New Roman',serif;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{-webkit-text-size-adjust:100%}
+@media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
+body{background:var(--black);color:var(--ink);font-family:var(--serif);font-size:21px;line-height:1.5;padding:env(safe-area-inset-top) 0 env(safe-area-inset-bottom)}
+img{max-width:100%;height:auto;display:block}
+[hidden]{display:none!important}
+:focus-visible{outline:2px solid var(--ink);outline-offset:3px}
+.wrap{max-width:640px;margin:0 auto;padding:0 16px}
+h2,h3{font-family:var(--display);font-weight:600;letter-spacing:.02em;line-height:1.15}
+h2{font-size:clamp(25px,5.8vw,32px);margin-bottom:16px}
+h3{font-size:22px;margin-bottom:8px}
+p + p{margin-top:14px}
+.eyebrow{font-family:var(--display);font-size:16px;letter-spacing:.16em;text-transform:uppercase;color:var(--gold);margin-bottom:10px}
+.btn{display:block;width:100%;margin-top:18px;font-family:var(--serif);font-weight:500;font-size:22px;line-height:1.25;
+  color:var(--black);background:var(--gold);border:1.5px solid var(--gold);padding:18px;min-height:60px;cursor:pointer;text-align:center;text-decoration:none}
+.btn:hover{background:#E8C98C}
+.btn.buy{animation:glow 2.6s ease-in-out infinite}
+@keyframes glow{0%,100%{box-shadow:0 0 0 0 rgba(217,178,106,0)}50%{box-shadow:0 0 22px 2px rgba(217,178,106,.45)}}
+.paynote{font-size:17px;color:var(--dim);text-align:center;margin-top:12px;line-height:1.45}
+.paynote b{color:var(--ink);font-weight:500}
+
+/* Cielo de fondo */
+.sky{position:fixed;inset:0;width:100%;height:100%;object-fit:cover;z-index:-1;opacity:.5;pointer-events:none}
+.sky-shade{position:fixed;inset:0;z-index:-1;background:radial-gradient(ellipse at 50% 30%,rgba(0,0,0,.1),rgba(0,0,0,.65) 75%);pointer-events:none}
+/* Escribiendo… */
+.typing{display:inline-flex;gap:5px;padding:4px 2px}
+.typing i{width:8px;height:8px;border-radius:50%;background:var(--gold);opacity:.35;animation:dot 1s infinite}
+.typing i:nth-child(2){animation-delay:.18s}.typing i:nth-child(3){animation-delay:.36s}
+@keyframes dot{50%{opacity:1;transform:translateY(-3px)}}
+/* Escena de El Llamado */
+#callScene{position:fixed;inset:0;z-index:30;background:#000;display:flex;flex-direction:column;align-items:center;justify-content:flex-end;text-align:center;opacity:0;pointer-events:none;transition:opacity 1.2s ease}
+#callScene.on{opacity:1;pointer-events:auto}
+#callScene video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+#callScene .cap{position:relative;padding:0 22px 7vh;width:100%;max-width:520px;background:linear-gradient(to top,rgba(0,0,0,.92) 40%,rgba(0,0,0,0))}
+#callScene .cap p{font-size:20px;color:var(--ink)}
+#callScene .cap .eyebrow{margin-top:40px}
+#callScene .btn{opacity:0;transition:opacity .8s}
+#callScene .btn.show{opacity:1}
+/* Cofre en la oferta */
+.offer{position:relative;overflow:hidden}
+.offer .bgv{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:.3;z-index:0;pointer-events:none}
+.offer > *:not(.bgv){position:relative;z-index:1}
+
+/* Encabezado del chat */
+.chat-head{position:sticky;top:0;z-index:5;background:rgba(0,0,0,.94);border-bottom:1px solid var(--gold-soft)}
+.chat-head .wrap{display:flex;align-items:center;gap:12px;padding-top:10px;padding-bottom:10px}
+.chat-head img{width:48px;height:48px;border-radius:50%;border:1.5px solid var(--gold);object-fit:cover}
+.chat-head b{font-family:var(--display);font-weight:600;font-size:18px;letter-spacing:.04em;display:block}
+.chat-head small{font-size:16px;color:var(--dim)}
+.chat-head a{margin-left:auto;font-size:15px;color:var(--dim);text-align:right;line-height:1.2}
+
+/* Conversación */
+.chat{padding:22px 0 30px;display:flex;flex-direction:column;gap:12px}
+.msg{max-width:88%;animation:pop .35s ease both}
+@keyframes pop{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:none}}
+.msg.him{align-self:flex-start}
+.msg.me{align-self:flex-end}
+.bub{backdrop-filter:blur(3px);-webkit-backdrop-filter:blur(3px);background:rgba(22,19,14,.86);border:1px solid var(--gold-soft);border-radius:4px 16px 16px 16px;padding:12px 15px;font-size:20px}
+.me .bub{background:var(--mine);border-color:var(--gold);border-radius:16px 4px 16px 16px;color:#F4E4BF}
+.bub em{color:var(--gold);font-style:italic}
+.bub .big{font-family:var(--display);font-size:42px;color:var(--gold);line-height:1;display:block;margin:4px 0}
+.chain{list-style:none}
+.chain li{padding:6px 0;border-bottom:1px dashed var(--line-soft)}
+.chain li:last-child{border:0}
+.chain b{font-family:var(--display);font-weight:600;font-size:17px;color:var(--gold);letter-spacing:.03em}
+
+/* Nota de voz */
+.vn{display:flex;align-items:center;gap:12px;min-width:250px}
+.vn button{all:unset;cursor:pointer;flex:0 0 50px;height:50px;border-radius:50%;background:var(--gold);color:var(--black);display:grid;place-items:center;font-size:20px}
+.vn button:focus-visible{outline:2px solid var(--ink);outline-offset:2px}
+.wave{position:relative;flex:1;height:34px;display:flex;align-items:center;gap:3px;overflow:hidden}
+.wave i{display:block;width:3px;border-radius:2px;background:var(--line)}
+.wave .fill{position:absolute;inset:0 auto 0 0;width:0;display:flex;align-items:center;gap:3px;overflow:hidden}
+.wave .fill i{background:var(--gold);flex:0 0 3px}
+.vn .dur{font-size:16px;color:var(--dim);min-width:38px;text-align:right}
+.tx{display:block;margin-top:8px;font-size:16px;color:var(--dim);background:none;border:0;padding:0;font-family:inherit;text-decoration:underline;cursor:pointer}
+.transcript{margin-top:10px;font-size:18px;color:var(--dim);border-top:1px solid var(--line-soft);padding-top:8px}
+
+/* Respuestas */
+.choices{display:grid;gap:10px;align-self:stretch;animation:pop .35s ease both}
+.choices button{all:unset;box-sizing:border-box;cursor:pointer;border:1.5px solid var(--gold);color:var(--gold);padding:14px 16px;font-size:20px;text-align:center;border-radius:28px}
+.choices button:hover{background:rgba(217,178,106,.12)}
+.choices button:focus-visible{outline:2px solid var(--ink);outline-offset:2px}
+
+/* Inicio */
+.start{text-align:center;padding:36px 0 10px}
+.start img{width:110px;height:110px;border-radius:50%;border:2px solid var(--gold);object-fit:cover;margin:0 auto 16px}
+.start h1{font-family:var(--display);font-weight:600;font-size:clamp(26px,6.6vw,34px);line-height:1.2;margin-bottom:10px}
+.start p{color:var(--dim)}
+
+/* Oferta dentro del chat */
+.offer{border:1.5px solid var(--gold);padding:24px 18px;text-align:center;align-self:stretch;background:#050403;animation:pop .4s ease both}
+.offer .mini{font-size:19px;color:var(--dim)}
+.offer .mini s{font-family:var(--display)}
+.offer .now{font-family:var(--display);font-size:46px;line-height:1.05;color:var(--gold);margin:4px 0 2px}
+.includes{list-style:none;text-align:left;margin:16px 0 6px;border-top:1px solid var(--line-soft)}
+.includes li{display:flex;justify-content:space-between;gap:12px;padding:10px 0;border-bottom:1px solid var(--line-soft);font-size:19px}
+.includes li span:last-child{font-family:var(--display);white-space:nowrap;color:var(--dim)}
+
+/* Última página */
+#ultima{border-top:1px solid var(--line-soft);padding:48px 0 30px}
+.wall{display:grid;gap:12px;margin-top:14px}
+.wall figure{border:1px solid var(--line)}
+.wall-note{font-size:17px;color:var(--dim);margin-top:10px}
+details{border-top:1px solid var(--line-soft);padding:14px 0}
+details:last-of-type{border-bottom:1px solid var(--line-soft)}
+summary{cursor:pointer;font-family:var(--display);font-size:18px;letter-spacing:.03em;list-style:none;display:flex;justify-content:space-between;gap:12px}
+summary::-webkit-details-marker{display:none}
+summary:after{content:'+';font-family:var(--serif);font-size:24px;line-height:1}
+details[open] summary:after{content:'−'}
+details p{margin-top:10px}
+.sticky{position:fixed;left:0;right:0;bottom:0;background:var(--black);border-top:1.5px solid var(--gold);padding:10px 16px calc(10px + env(safe-area-inset-bottom));display:none;align-items:center;gap:14px;z-index:10}
+.sticky.show{display:flex}
+.sticky .p{font-family:var(--display);font-size:20px;white-space:nowrap}
+.sticky .btn{margin:0;padding:12px;min-height:52px;font-size:19px}
+footer{border-top:1px solid var(--line-soft);padding:30px 0 90px;font-size:17px;color:var(--dim);text-align:center}
+footer p + p{margin-top:8px}
+@media (min-width:600px){.wall{grid-template-columns:1fr 1fr}.sticky{display:none!important}}
+</style>
+</head>
+<body>
+
+<video class="sky" src="escenas/cielo.mp4" poster="escenas/cielo.jpg" autoplay muted loop playsinline preload="auto" aria-hidden="true"></video>
+<div class="sky-shade" aria-hidden="true"></div>
+<div id="callScene" aria-hidden="true">
+  <video id="callVid" src="escenas/llamado.mp4" poster="escenas/llamado.jpg" muted loop playsinline preload="auto"></video>
+  <div class="cap">
+    <p class="eyebrow">El llamado</p>
+    <p id="callText">Cierra los ojos y escucha a Ernesto.</p>
+    <button class="btn" type="button" id="callDone">Continuar mi mapa</button>
+  </div>
+</div>
+<header class="chat-head">
+  <div class="wrap">
+    <img src="img/ernesto.webp" alt="" width="48" height="48" onerror="this.remove()">
+    <div><b>Mensajes de Ernesto</b><small>Grabados para ti</small></div>
+    <button type="button" id="snd" hidden aria-label="Silenciar música" style="all:unset;cursor:pointer;margin-left:auto;font-size:22px;padding:6px">🔊</button>
+    <a href="#" id="skip" style="margin-left:10px">Ir a la<br>Activación ›</a>
+  </div>
+</header>
+
+<main class="wrap">
+  <div class="start" id="start">
+    <img src="img/ernesto.webp" alt="Ernesto" width="110" height="110" onerror="this.remove()">
+    <p class="eyebrow" id="startEyebrow"></p>
+    <h1>Ernesto dejó unos mensajes de voz para quienes se reconocen en su mapa</h1>
+    <p>Sube el volumen o ponte audífonos.</p>
+    <button class="btn" type="button" id="startBtn">▶ Escuchar el primer mensaje</button>
+  </div>
+  <div class="chat" id="chat" aria-live="polite"></div>
+</main>
+
+<!-- ===== ÚLTIMA PÁGINA DEL MAPA ===== -->
+<section id="ultima" hidden>
+  <div class="wrap">
+    <p class="eyebrow">La última página del mapa</p>
+    <h2>Lo que necesitas saber antes de dar el paso</h2>
+    <h3 style="margin-top:22px">La voz del círculo</h3>
+    <div class="wall">
+      <figure><img src="img/comentarios/comentario-3.webp" alt="Mensaje de un seguidor: hice el ritual con mucha fe, escribí la cantidad, puse el vaso con agua y sal sobre el papel y encendí la vela; la llama creció mientras decía la oración y se apagó sola al terminar." loading="lazy" width="738" height="680"></figure>
+      <figure><img src="img/comentarios/comentarios-facebook.jpg" alt="Comentarios en un video de Código Abundante en Facebook." loading="lazy" width="738" height="1070"></figure>
+      <figure><img src="img/comentarios/comentarios-youtube.jpg" alt="Comentarios en videos de Código Abundante en YouTube." loading="lazy" width="1160" height="1390"></figure>
+    </div>
+    <p class="wall-note">Mensajes y comentarios reales de nuestra comunidad de más de 45 mil personas. Nombres y fotos ocultos por privacidad.</p>
+
+    <h3 style="margin-top:30px">Preguntas frecuentes</h3>
+    <details><summary>¿Necesito saber Kabbalah?</summary><p>No. El audio te guía de principio a fin y el manual explica cada práctica paso a paso.</p></details>
+    <details><summary>¿Tengo que ser judío?</summary><p>No. Usamos la Kabbalah como un mapa de estudio y práctica, abierto a cualquier persona.</p></details>
+    <details><summary>¿Puedo hacerlo si tengo otra religión?</summary><p>Sí. No necesitas cambiar tus creencias ni dejar tu fe. Muchas personas en nuestros comentarios rezan desde su fe y viven esta práctica como un complemento a su oración.</p></details>
+    <details><summary>¿Qué necesito para hacerlo?</summary><p>Tu celular o computador, audífonos y 33 minutos al día en un lugar tranquilo.</p></details>
+    <details><summary>¿Cuánto dura?</summary><p>33 días. Un audio de 33 minutos al día, a la misma hora si puedes.</p></details>
+    <details><summary>¿Qué incluye exactamente?</summary><p>El audio Activación Tikún 33 y un manual con 8 guías a color: 12 Rituales para el Éxito, 11 Principios Kabbalísticos, Dinero Cósmico, Los Decretos de Poder, Geometría Sagrada, La Mente Abundante, Meditaciones de la Prosperidad y 33 Oraciones para la Riqueza.</p></details>
+    <details><summary>¿Cómo se paga?</summary><p>En Hotmart, la plataforma segura de pagos. Ves el precio en tu moneda y los métodos de tu país: tarjeta, PayPal y opciones locales, como Mercado Pago en México. Es un pago único, no mensual.</p></details>
+    <details><summary>¿Cuándo lo recibo?</summary><p>Apenas pagas, te mostramos en pantalla cómo entrar y te llega un correo de Hotmart con tu acceso. Si no lo ves, revisa promociones o spam. Si pagas en efectivo, llega cuando el pago se confirma.</p></details>
+    <details><summary>¿Por qué cuesta tan poco?</summary><p>Porque queremos que cualquier persona que se reconozca en su mapa pueda empezar a trabajarlo, sin que el precio sea la traba. Es nuestro precio de lanzamiento.</p></details>
+    <details><summary>¿Qué pasa si no es para mí?</summary><p>Tienes 7 días de garantía. Pides el reembolso desde Hotmart y te devuelven el 100%, sin preguntas.</p></details>
+
+    <a class="btn buy" href="#" rel="noopener" data-ubicacion="final">Sí, quiero continuar mi mapa</a>
+    <p class="paynote">Pago seguro en Hotmart · Precio en tu moneda · Garantía de 7 días</p>
+  </div>
+</section>
+
+<div class="sticky" id="sticky" aria-hidden="true"><span class="p">$9.99</span><a class="btn buy" href="#" tabindex="-1" data-ubicacion="barra">Continuar mi mapa</a></div>
+
+<footer>
+  <div class="wrap">
+    <p>Los mensajes de Ernesto están grabados con anticipación; no es una conversación en vivo.</p>
+    <p>Las ilustraciones de este sitio y la voz de Ernesto fueron creadas con ayuda de inteligencia artificial.</p>
+    <p>Código Abundante. Contenido de estudio y reflexión espiritual; no constituye asesoría financiera, médica ni psicológica.</p>
+  </div>
+</footer>
+
+<script>
+const HOTMART_URL='https://pay.hotmart.com/U107513163M';
+const T={
+ 1:{sef:'Kéter · la Corona',esfera:'Kéter',name:'El Tikún del Origen',mirror:'Tienes la idea antes que nadie. Y ves a otro cobrarla.',dissolve:'el paso de la idea a la materia'},
+ 2:{sef:'Jojmá · la Sabiduría',esfera:'Jojmá',name:'El Tikún del Destello',mirror:'Todos te piden consejo. Nadie te paga por él.',dissolve:'darle recipiente a lo que sabes'},
+ 3:{sef:'Biná · el Entendimiento',esfera:'Biná',name:'El Tikún de la Vasija',mirror:'Llevas años preparándote para empezar.',dissolve:'dejar nacer lo que ya está listo'},
+ 4:{sef:'Jésed · la Bondad',esfera:'Jésed',name:'El Tikún del Dar',mirror:'Prestas lo que no te sobra. Y te da vergüenza cobrarlo.',dissolve:'que lo que das aprenda el camino de regreso'},
+ 5:{sef:'Guevurá · el Rigor',esfera:'Guevurá',name:'El Tikún del Muro',mirror:'Cuidas tanto el dinero que no lo dejas entrar.',dissolve:'abrir una puerta en el muro'},
+ 6:{sef:'Tiféret · la Belleza',esfera:'Tiféret',name:'El Tikún del Sostén',mirror:'Eres el pilar de todos. Y nadie pregunta quién te sostiene a ti.',dissolve:'recibir sin culpa'},
+ 7:{sef:'Nétzaj · la Victoria',esfera:'Nétzaj',name:'El Tikún del Esfuerzo',mirror:'Si fuera por esfuerzo, tu vida ya estaría resuelta.',dissolve:'que llegue sin que te rompa'},
+ 8:{sef:'Hod · el Esplendor',esfera:'Hod',name:'El Tikún de la Palabra',mirror:'Sabes lo que vales. Pero dices un precio más bajo.',dissolve:'el medio segundo en que tu palabra se encoge'},
+ 9:{sef:'Yesod · el Fundamento',esfera:'Yesod',name:'El Tikún del Canal',mirror:'El dinero sí llega. Lo que no hace es quedarse.',dissolve:'sellar el canal para que lo que llega, permanezca'}
+};
+const qp=+new URLSearchParams(location.search).get('tikun');
+const N=(qp>=1&&qp<=9)?qp:null;
+if(!N) location.replace('/');
+const t=T[N]||T[1];
+const $=id=>document.getElementById(id);
+function track(name,params){ try{ gtag('event',name,Object.assign({variante:'b',tikun:N},params||{})) }catch(_){} }
+const chat=$('chat');
+const sleep=ms=>new Promise(r=>setTimeout(r,ms));
+function scrollEnd(){ try{ window.scrollTo({top:document.body.scrollHeight,behavior:'smooth'}) }catch(_){ window.scrollTo(0,document.body.scrollHeight) } }
+
+/* Transcripciones de las notas de voz (también se muestran si el audio no existe) */
+const NOTES={
+ 1:{src:`audio/nota-1-tikun-${N}.mp3`, text:`Vi tu mapa. Tikún ${N}, ${t.esfera}. «${t.mirror}» Si te reconociste al leerlo, no es casualidad. Quédate un momento conmigo: quiero hacerte unas preguntas.`},
+ 2:{src:'audio/nota-2.mp3', text:'Nada de lo que intentaste estuvo mal. Te mantuvo con fe. Pero eran prácticas generales, como regar todo el jardín cuando la planta que se seca es solo una. Tu mapa no te pide más esfuerzo: te pide trabajar un punto concreto.'},
+ 3:{src:'audio/nota-3.mp3', text:'Cierra los ojos. Respira tres veces, despacio. Pon tu mano sobre el pecho y repite conmigo, en silencio: reconozco mi punto de traba. No es mi culpa, pero sí es mi camino. Hoy elijo trabajarlo. Que lo que llegue a mi vida, permanezca.'},
+ 4:{src:'audio/nota-4.mp3', text:'Toda mi vida le hablé de esto a mi nieta: del Árbol, de las esferas, de por qué a unos el dinero se les queda y a otros se les escapa. Y siempre le decía lo mismo: puedes saber dónde está la piedra en el río, pero el agua seguirá detenida hasta que alguien la mueva. Reconocer tu punto no es lo mismo que trabajarlo.'},
+ 5:{src:'audio/nota-5.mp3', text:'Para eso existe la Activación Tikún 33. Son treinta y tres minutos con mi voz guiándote, sobre un sonido que ayuda a la mente a soltar. Te pones audífonos, cierras los ojos, una vez al día, durante treinta y tres días. Viene con un manual de ocho guías. No necesitas saber Kabbalah ni cambiar de religión. Solo audífonos y la decisión de empezar.'},
+ 6:{src:'audio/nota-6.mp3', text:'No te voy a pedir que decidas con miedo. Ya sabes dónde se detiene tu flujo. Si sientes que es tu momento, toca el botón dorado. Y si en siete días sientes que no era para ti, te devuelven todo. Con amor, Ernesto.'}
+};
+
+let current=null;
+/* Música de fondo: arranca con el primer toque y baja cuando Ernesto habla */
+const BG=new Audio("audio/fondo-misterio.mp3"); BG.loop=true; BG.preload="auto"; BG.volume=.5; let bgOn=false;
+function bgLevel(v){ if(bgOn) BG.volume=v; }
+const SFX={}; ['mensaje','llaves','candado','cadenas','cuenco'].forEach(k=>{ const a=new Audio('audio/sfx-'+k+'.mp3'); a.preload='auto'; SFX[k]=a; });
+const SFX_VOL={mensaje:.45,llaves:.9,candado:1,cadenas:.5,cuenco:.6};
+function sfx(k){ if(!bgOn||!SFX[k]) return; try{ const a=SFX[k].cloneNode(); a.volume=SFX_VOL[k]; a.play().catch(()=>{}); }catch(_){} }
+function fmt(s){ if(!isFinite(s)||!s) return '0:30'; s=Math.round(s); return Math.floor(s/60)+':'+String(s%60).padStart(2,'0'); }
+function bars(){ let h=''; for(let i=0;i<26;i++){ const v=8+Math.round(Math.abs(Math.sin(i*1.7)+Math.sin(i*.6))*11); h+=`<i style="height:${v}px"></i>`; } return h; }
+
+function him(html){ const d=document.createElement('div'); d.className='msg him'; d.innerHTML='<div class="bub"><span class="typing" aria-label="Ernesto está escribiendo"><i></i><i></i><i></i></span></div>'; chat.appendChild(d); scrollEnd(); setTimeout(()=>{ d.firstChild.innerHTML=html; sfx('mensaje'); scrollEnd(); },650); return d; }
+function me(text){ const d=document.createElement('div'); d.className='msg me'; d.innerHTML=`<div class="bub"></div>`; d.firstChild.textContent=text; chat.appendChild(d); scrollEnd(); }
+
+/* Nota de voz: se reproduce dentro del toque del usuario. La promesa se cumple al terminar, pausar o fallar. */
+function voice(n,autoplay){
+  const note=NOTES[n];
+  const d=document.createElement('div'); d.className='msg him';
+  d.innerHTML=`<div class="bub"><div class="vn"><button type="button" aria-label="Reproducir mensaje de voz">▶</button><div class="wave">${bars()}<div class="fill">${bars()}</div></div><span class="dur">0:00</span></div><button class="tx" type="button">Leer el mensaje</button><div class="transcript" hidden></div></div>`;
+  chat.appendChild(d); scrollEnd();
+  const play=d.querySelector('.vn button'), fill=d.querySelector('.fill'), dur=d.querySelector('.dur'), tx=d.querySelector('.transcript'), txBtn=d.querySelector('.tx');
+  tx.textContent=note.text;
+  txBtn.addEventListener('click',()=>{ tx.hidden=!tx.hidden; txBtn.textContent=tx.hidden?'Leer el mensaje':'Ocultar texto'; });
+  const au=new Audio(); au.preload='auto'; au.src=note.src;
+  let resolveDone; const done=new Promise(r=>resolveDone=r); let settled=false, played=false;
+  const finish=why=>{ if(!settled){ settled=true; resolveDone(why); } };
+  au.addEventListener('loadedmetadata',()=>{ dur.textContent=fmt(au.duration); });
+  au.addEventListener('timeupdate',()=>{ if(au.duration) fill.style.width=(au.currentTime/au.duration*100)+'%'; dur.textContent=fmt(au.duration-au.currentTime); });
+  au.addEventListener('play',()=>{ bgLevel(.14); play.textContent='❚❚'; if(current&&current!==au) current.pause(); current=au; if(!played){ played=true; track('nota_play',{nota:n}); } });
+  au.addEventListener('pause',()=>{ bgLevel(.5); play.textContent='▶'; if(!au.ended) finish('pausa'); });
+  au.addEventListener('ended',()=>{ bgLevel(.5); play.textContent='▶'; fill.style.width='100%'; track('nota_fin',{nota:n}); finish('fin'); });
+  au.addEventListener('error',()=>{ const v=d.querySelector('.vn'); if(v) v.remove(); txBtn.remove(); tx.hidden=false; tx.style.cssText='margin:0;border:0;padding:0;font-size:20px;color:var(--ink)'; finish('sin_audio'); });
+  play.addEventListener('click',()=>{ au.paused ? au.play().catch(()=>{}) : au.pause(); });
+  if(autoplay) au.play().catch(()=>{ finish('bloqueado'); });
+  return done;
+}
+
+function choices(opts){
+  return new Promise(res=>{
+    const d=document.createElement('div'); d.className='choices';
+    opts.forEach(o=>{ const b=document.createElement('button'); b.type='button'; b.textContent=o.t; b.addEventListener('click',()=>{ d.remove(); me(o.t); res(o); }); d.appendChild(b); });
+    chat.appendChild(d); scrollEnd();
+  });
+}
+
+const FEEL={
+  alivio:'Ese alivio es la señal de que una parte de ti ya lo sabía.',
+  tristeza:'Esa tristeza es por los años de lucha. No fueron en vano: te trajeron hasta aquí.',
+  esperanza:'Guarda esa esperanza. Es la energía con la que se empieza.'
+};
+const TIME={
+  meses:'Meses ya es suficiente para saber que no es casualidad.',
+  anos:'Años… y aun así sigues buscando. Eso habla de tu fuerza.',
+  siempre:'Desde siempre. Entonces no es mala suerte: es un patrón.'
+};
+
+function offer(){
+  if($('offerCard')) return $('offerCard').scrollIntoView({behavior:'smooth',block:'start'});
+  const d=document.createElement('div'); d.className='offer'; d.id='offerCard';
+  d.innerHTML=`<video class="bgv" src="escenas/cofre.mp4" poster="escenas/cofre.jpg" autoplay muted loop playsinline aria-hidden="true"></video><p class="eyebrow">Tu Tikún ${N} · ${t.esfera}</p><h2>El siguiente paso de tu mapa</h2>
+    <p>La <em>Activación Tikún 33</em>: la práctica para trabajar tu punto de traba en ${t.esfera}.</p>
+    <ul class="includes"><li><span>Audio de 33 minutos guiado por Ernesto</span><span>$27</span></li><li><span>Calendario de 33 días</span><span>$15</span></li><li><span>Manual con 8 guías a color</span><span>$35</span></li></ul>
+    <p class="mini">Valor total <s>$77 USD</s> · hoy</p><div class="now">$9.99 USD</div>
+    <p class="mini">Pago único · acceso inmediato · garantía de 7 días</p>
+    <a class="btn buy" href="#" rel="noopener" data-ubicacion="chat">Sí, quiero continuar mi mapa</a>
+    <p class="paynote">Al tocar, pagas en <b>Hotmart</b>, la plataforma segura donde queda tu acceso. Te pide tu nombre, tu correo y la forma de pago, y ves el precio en tu moneda. Toma 1 minuto.</p>`;
+  chat.appendChild(d); wireBuy(); $('ultima').hidden=false; track('oferta_vista'); sfx('candado'); setTimeout(()=>sfx('cadenas'),500); stickyWatch(); setTimeout(()=>d.scrollIntoView({behavior:'smooth',block:'start'}),80);
+}
+function wireBuy(){
+  document.querySelectorAll('.buy').forEach(a=>{
+    if(a.dataset.wired) return; a.dataset.wired='1';
+    a.href=`${HOTMART_URL}?sck=tikun-${N}-b`;
+    a.addEventListener('click',()=>track('click_comprar',{ubicacion:a.dataset.ubicacion}));
+  });
+}
+function stickyWatch(){
+  const sticky=$('sticky'), card=$('offerCard'), last=$('ultima'); let inCard=true, inLast=false;
+  const upd=()=>sticky.classList.toggle('show', !inCard && inLast);
+  new IntersectionObserver(e=>{inCard=e[0].isIntersecting;upd()}).observe(card);
+  new IntersectionObserver(e=>{inLast=e[0].isIntersecting;upd()}).observe(last);
+}
+
+/* El guion de la conversación */
+async function run(){
+  $('start').hidden=true; track('chat_inicio'); bgOn=true; BG.play().catch(()=>{}); $('snd').hidden=false;
+  await voice(1,true);
+  await sleep(400);
+  him('Te hago tres preguntas. Solo toca tu respuesta.');
+  await sleep(700);
+  him('¿Desde hace cuánto sientes este patrón con el dinero?');
+  const a1=await choices([{v:'meses',t:'Unos meses'},{v:'anos',t:'Varios años'},{v:'siempre',t:'Desde siempre'}]);
+  track('chat_respuesta',{pregunta:'tiempo',respuesta:a1.v});
+  await sleep(600); him(TIME[a1.v]);
+  await sleep(900); him('¿Qué has intentado para cambiarlo?');
+  const a2=await choices([{v:'decretos',t:'Decretos y afirmaciones',x:'decretos y afirmaciones'},{v:'oraciones',t:'Oraciones y rituales',x:'oraciones y rituales'},{v:'esfuerzo',t:'Trabajar más duro',x:'trabajar más duro'},{v:'todo',t:'Un poco de todo',x:'un poco de todo'}]);
+  track('chat_respuesta',{pregunta:'metodo',respuesta:a2.v});
+  const n2=voice(2,true);
+  await sleep(500); him(`Con ${a2.x} no estabas equivocado. Solo que tu trabajo pendiente está en <em>${t.esfera}</em>.`);
+  await n2;
+  await sleep(600); him('¿Qué sientes ahora que lo ves en tu mapa?');
+  const a3=await choices([{v:'alivio',t:'Alivio'},{v:'tristeza',t:'Tristeza'},{v:'esperanza',t:'Esperanza'}]);
+  track('chat_respuesta',{pregunta:'sentir',respuesta:a3.v});
+  await sleep(600); him(FEEL[a3.v]);
+  await sleep(900); him('Antes de seguir, quiero que hagas algo conmigo. Busca un momento de calma.');
+  await choices([{v:'listo',t:'Estoy listo, Ernesto'}]);
+  track('llamado_inicio');
+  const scene=$('callScene'), cv=$('callVid'), done=$('callDone');
+  scene.classList.add('on'); scene.setAttribute('aria-hidden','false'); cv.play().catch(()=>{}); sfx('cuenco');
+  const n3=voice(3,true);
+  n3.then(r=>{ if(r==='sin_audio'||r==='bloqueado'){ $('callText').textContent=NOTES[3].text; done.classList.add('show'); } });
+  setTimeout(()=>done.classList.add('show'),8000);
+  await Promise.race([Promise.all([n3,sleep(9000)]).then(r=>r[0]==='fin'?sleep(1500):new Promise(()=>{})), new Promise(r=>done.addEventListener('click',r,{once:true}))]);
+  if(current) current.pause();
+  scene.classList.remove('on'); scene.setAttribute('aria-hidden','true'); setTimeout(()=>cv.pause(),1300);
+  await sleep(700);
+  await sleep(500);
+  setTimeout(()=>sfx('llaves'),700);
+  him(`Tu número es la llave de tu mapa:<span class="big">${N}</span>Y con esa llave se abre lo que mi nieta y yo queremos contarte.`);
+  await sleep(600);
+  await choices([{v:'seguir',t:'Cuéntame, Ernesto'}]);
+  await voice(4,true);
+  await sleep(500);
+  him(`Así se recorre tu mapa:<ul class="chain"><li><b>Tu fecha</b> · la puerta</li><li><b>Tu número ${N}</b> · la llave</li><li><b>${t.esfera}</b> · donde se detiene el flujo</li><li><b>${t.name}</b> · tu punto de trabajo</li><li><b>33 días</b> · tu práctica</li></ul>`);
+  await sleep(600);
+  await choices([{v:'como',t:'¿Y cómo se trabaja?'}]);
+  await voice(5,true);
+  await sleep(500);
+  him(`En los minutos 11 a 22 hay silencio con el sonido de fondo. Ahí sostienes la intención de tu esfera, ${t.esfera}: ${t.dissolve}.`);
+  await sleep(600);
+  await choices([{v:'empezar',t:'Quiero saber cómo empezar'}]);
+  const n6=voice(6,true);
+  await sleep(1200); offer();
+  await n6;
+}
+$('startBtn').addEventListener('click',run,{once:true});
+$('snd').addEventListener('click',()=>{ bgOn=!bgOn; if(bgOn){ BG.volume=.5; BG.play().catch(()=>{}); $('snd').textContent='🔊'; } else { BG.pause(); $('snd').textContent='🔇'; } track('sonido',{estado:bgOn?'encendido':'apagado'}); });
+$('startEyebrow').textContent=`Tu Tikún ${N} · ${t.esfera}`;
+$('skip').addEventListener('click',e=>{ e.preventDefault(); track('chat_atajo'); $('start').hidden=true; offer(); });
+wireBuy();
+</script>
+</body>
+</html>

@@ -263,6 +263,43 @@ details p{margin-top:10px;color:var(--ink)}
 .tag{display:inline-block;font-family:var(--display);font-size:13px;letter-spacing:.14em;text-transform:uppercase;color:var(--black);background:var(--gold);padding:4px 10px;margin-top:14px}
 .price .amt{color:var(--gold)}
 .price{border-color:var(--gold)}
+/* ---------- Entrada cinematográfica ---------- */
+#intro{position:fixed;inset:0;z-index:50;background:#000;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:24px;transition:opacity 1.4s ease}
+#intro.out{opacity:0;pointer-events:none}
+#intro .bgv{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:0;transform:scale(1.04);animation:breath 9s ease-in-out infinite alternate}
+@keyframes breath{to{transform:scale(1.1)}}
+#intro .shade{position:absolute;inset:0;z-index:1;background:linear-gradient(to bottom,rgba(0,0,0,.15) 0%,rgba(0,0,0,.25) 40%,rgba(0,0,0,.88) 72%,#000 100%)}
+#intro .content{position:relative;z-index:2;margin-top:auto;padding-bottom:6vh;width:100%;display:flex;flex-direction:column;align-items:center}
+#intro .flash{position:absolute;inset:0;z-index:3;background:#fff;opacity:0;pointer-events:none;transition:opacity 1.1s ease}
+#intro.opening .flash{opacity:.6}
+#intro.opening .content{opacity:0;transition:opacity .5s}
+#intro .tree{max-width:170px;margin-bottom:26px}
+#intro .tree g{opacity:0;animation:light 1s ease forwards}
+#intro .tree line{stroke:var(--gold-soft)}
+#intro .tree circle{stroke:var(--gold)}
+@keyframes light{to{opacity:1}}
+#intro .l1{font-family:var(--display);font-size:15px;letter-spacing:.22em;text-transform:uppercase;color:var(--gold);opacity:0;animation:light 1.2s ease .6s forwards}
+#intro .l2{font-family:var(--display);font-size:clamp(24px,6.4vw,32px);line-height:1.25;margin:12px 0 6px;opacity:0;animation:light 1.2s ease 1.2s forwards}
+#intro .l3{color:var(--dim);font-size:19px;opacity:0;animation:light 1.2s ease 1.8s forwards}
+#intro .btn{max-width:360px;opacity:0;animation:light 1s ease 2.4s forwards}
+#intro .mute{margin-top:16px;background:none;border:0;color:var(--dim);font:inherit;font-size:17px;text-decoration:underline;cursor:pointer;opacity:0;animation:light 1s ease 2.8s forwards}
+#soundBtn{position:fixed;right:12px;top:calc(12px + env(safe-area-inset-top));z-index:20;width:48px;height:48px;border-radius:50%;border:1.5px solid var(--gold);background:rgba(0,0,0,.85);color:var(--gold);font-size:20px;cursor:pointer;display:none}
+#soundBtn.show{display:block}
+@media (prefers-reduced-motion:reduce){#intro .content > *{animation:none!important;opacity:1!important}#intro .bgv{animation:none!important}}
+
+/* ---------- Escenas de fondo ---------- */
+.hero{position:relative;overflow:hidden}
+.hero .bgv{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:.38;z-index:0;pointer-events:none}
+.hero .wrap{position:relative;z-index:1}
+.hero .win{background:rgba(0,0,0,.8)}
+#interlude{position:fixed;inset:0;z-index:40;background:#000;opacity:0;pointer-events:none;transition:opacity .8s ease;display:flex;align-items:flex-end;justify-content:center}
+#interlude.on{opacity:1;pointer-events:auto}
+#interlude video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+#interlude p{position:relative;font-family:var(--display);letter-spacing:.14em;text-transform:uppercase;font-size:16px;color:var(--gold);background:rgba(0,0,0,.7);padding:10px 18px;margin-bottom:10vh}
+.offer-top{position:relative;overflow:hidden}
+.offer-top .bgv{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:.3;z-index:0;pointer-events:none}
+.offer-top > *:not(.bgv){position:relative;z-index:1}
+
 /* ---------- Oferta: primera pantalla ---------- */
 .offer-top{text-align:center;border:1.5px solid var(--gold);padding:26px 20px 24px}
 .offer-top .eyebrow{font-family:var(--display);font-size:16px;letter-spacing:.14em;text-transform:uppercase;color:var(--gold)}
@@ -298,8 +335,25 @@ details p{margin-top:10px;color:var(--ink)}
 </head>
 <body>
 
+<!-- ================= ENTRADA CINEMATOGRÁFICA ================= -->
+<div id="intro" role="dialog" aria-label="Entrada">
+  <video class="bgv" id="doorVid" src="escenas/puerta.mp4" poster="escenas/puerta.jpg" muted playsinline preload="auto" aria-hidden="true"></video>
+  <div class="shade"></div>
+  <div class="content">
+    <p class="l1">Código Abundante</p>
+    <p class="l2">Tu fecha de nacimiento guarda un mapa</p>
+    <p class="l3">Ponte audífonos. Ernesto te va a acompañar.</p>
+    <button class="btn" type="button" id="enterBtn">▶ Toca para abrir la puerta</button>
+    <button class="mute" type="button" id="enterMute">Entrar sin sonido</button>
+  </div>
+  <div class="flash"></div>
+</div>
+<div id="interlude" aria-hidden="true"><video id="scrollVid" src="escenas/pergamino.mp4" muted playsinline preload="auto"></video><p>Leyendo tu mapa…</p></div>
+<button id="soundBtn" type="button" aria-label="Silenciar sonido">🔊</button>
+
 <!-- ================= HERO + TEST ================= -->
 <section class="hero">
+  <video class="bgv" src="escenas/astrolabio.mp4" poster="escenas/astrolabio.jpg" autoplay muted loop playsinline preload="metadata" aria-hidden="true"></video>
   <div class="wrap">
     <div class="brand"><img src="img/avatar.webp" alt="" width="34" height="34" onerror="this.remove()">CÓDIGO ABUNDANTE</div>
 
@@ -391,6 +445,7 @@ details p{margin-top:10px;color:var(--ink)}
 <section id="activacion">
   <div class="wrap">
     <div class="offer-top">
+      <video class="bgv" src="escenas/cofre.mp4" poster="escenas/cofre.jpg" muted loop playsinline preload="none" aria-hidden="true" id="chestVid"></video>
       <p class="eyebrow" id="offEyebrow"></p>
       <h2 id="offTitle"></h2>
       <button class="voice" id="voice" type="button" hidden aria-pressed="false">
@@ -399,7 +454,7 @@ details p{margin-top:10px;color:var(--ink)}
         <span class="play" id="voicePlay" aria-hidden="true">▶</span>
       </button>
       <audio id="voiceAudio" preload="metadata" src="audio/ernesto-activacion.mp3"></audio>
-      <p class="what">La <em>Activación Tikún 33</em>: un audio guiado de 33 minutos para escuchar 21 días, con un manual de 8 guías a color.</p>
+      <p class="what">La <em>Activación Tikún 33</em>: un audio de 33 minutos guiado por la voz de Ernesto, para escuchar durante 33 días, con un manual de 8 guías a color.</p>
       <p class="mini">Valor total <s>$77 USD</s> · hoy</p>
       <div class="now">$9.99 USD</div>
       <p class="mini">Pago único · acceso inmediato · garantía de 7 días</p>
@@ -420,17 +475,17 @@ details p{margin-top:10px;color:var(--ink)}
     <div class="block rv">
       <h3>Cómo funciona</h3>
       <p>Leer tu mapa te muestra dónde se traba el flujo. Trabajarlo pide otra cosa: silencio, repetición y un momento en que la mente deja de pelear.</p>
-      <p>Te pones audífonos, cierras los ojos y te dejas guiar. Se escucha durante 21 días, a la misma hora si puedes.</p>
+      <p>Te pones audífonos, cierras los ojos y la voz de Ernesto te guía, sobre un sonido binaural que ayuda a la mente a soltar. Se escucha durante 33 días, a la misma hora si puedes.</p>
       <div class="moments">
-        <div class="moment"><span class="t">Min 1–11</span><div><b>Entrada</b>El cuerpo baja el ritmo. Respiración guiada hasta que la mente deja de hacer listas.</div></div>
+        <div class="moment"><span class="t">Min 1–11</span><div><b>Entrada</b>Ernesto te guía a respirar y bajar el ritmo, hasta que la mente deja de hacer listas.</div></div>
         <div class="moment"><span class="t">Min 11–22</span><div><b>Disolución</b><span id="offDissolve"></span></div></div>
-        <div class="moment"><span class="t">Min 22–33</span><div><b>Expansión</b>La vasija se abre. Terminas con una frase que llevas al resto del día.</div></div>
+        <div class="moment"><span class="t">Min 22–33</span><div><b>Expansión</b>Ernesto te trae de regreso y te deja la frase del día, para llevarla contigo.</div></div>
       </div>
     </div>
 
     <div class="block rv">
       <h3>Qué recibes</h3>
-      <p>El audio de 33 minutos y, junto con él, un manual con 8 guías a color para acompañar tus 21 días:</p>
+      <p>El audio de 33 minutos y, junto con él, un manual con 8 guías a color para acompañar tus 33 días:</p>
       <img class="bonos" src="img/bonos.webp" alt="La Activación Tikún 33 con sus 8 guías: 12 Rituales para el Éxito, 11 Principios Kabbalísticos para la Riqueza, Dinero Cósmico, Los Decretos de Poder, Geometría Sagrada, La Mente Abundante, Las Meditaciones de la Prosperidad y 33 Oraciones para la Riqueza" loading="lazy" width="1200" height="401">
       <ul class="glist">
         <li>12 Rituales para el Éxito</li><li>11 Principios Kabbalísticos</li><li>Dinero Cósmico</li><li>Los Decretos de Poder</li>
@@ -456,8 +511,8 @@ details p{margin-top:10px;color:var(--ink)}
     <div class="price rv" id="priceBox">
       <h3>Activación Tikún 33</h3>
       <ul class="stack">
-        <li><span>Audio Activación Tikún 33 (33 min)</span><span>$27</span></li>
-        <li><span>Disolución trabajada sobre tu Tikún</span><span>$15</span></li>
+        <li><span>Audio guiado Activación Tikún 33 (33 min, voz de Ernesto)</span><span>$27</span></li>
+        <li><span>Calendario de 33 días</span><span>$15</span></li>
         <li><span>Manual con 8 guías a color</span><span>$35</span></li>
       </ul>
       <p class="was">Valor total: <s>$77 USD</s></p>
@@ -567,14 +622,25 @@ details p{margin-top:10px;color:var(--ink)}
 <footer>
   <div class="wrap">
     <p>Código Abundante. Contenido de estudio y reflexión espiritual; no constituye asesoría financiera, médica ni psicológica.</p>
-    <p>Las ilustraciones de este sitio fueron creadas con ayuda de inteligencia artificial.</p>
+    <p>Las ilustraciones de este sitio y la voz de Ernesto fueron creadas con ayuda de inteligencia artificial.</p>
     <p>Tu correo solo se usa para enviarte lo que pediste y nuevas enseñanzas. Puedes darte de baja cuando quieras.</p>
   </div>
 </footer>
 
 <script>
 /* ===== Configuración ===== */
-function track(name,params){ try{ if(window.gtag) gtag('event',name,params||{}) }catch(_){} }
+/* Prueba A/B: cada visitante queda en una versión fija. ?v=a o ?v=b la fuerza (para probar). */
+const VARIANTE=(function(){
+  const q=new URLSearchParams(location.search).get('v');
+  try{
+    if(q==='a'||q==='b'){ localStorage.setItem('ab_variante',q); return q; }
+    let v=localStorage.getItem('ab_variante');
+    if(v!=='a'&&v!=='b'){ v=Math.random()<.5?'a':'b'; localStorage.setItem('ab_variante',v); }
+    return v;
+  }catch(_){ return (q==='a'||q==='b')?q:'a'; }
+})();
+try{ gtag('set','user_properties',{variante:VARIANTE}); }catch(_){}
+function track(name,params){ try{ if(window.gtag) gtag('event',name,Object.assign({variante:VARIANTE},params||{})) }catch(_){} }
 function setURL(u){ try{ history.replaceState(null,'',u) }catch(_){} }
 const HOTMART_URL = 'https://pay.hotmart.com/U107513163M';
 const SUBSCRIBE_URL = '/api/subscribe';
@@ -594,9 +660,9 @@ const TIKUN = {
     pTitle:'El recipiente',practice:['Anota 3 cosas por las que la gente te pide ayuda.','Al lado de cada una, escribe cuánto le cobrarías a un desconocido.','Dilo en voz alta una vez, sin bajar la voz al final.'],
     dissolve:'La secuencia trabaja sobre Jojmá: darle recipiente a lo que sabes, para que pueda volver a ti.'},
  3:{sef:'Biná · el Entendimiento',esfera:'Biná',name:'El Tikún de la Vasija',mirror:'Llevas años preparándote para empezar.',
-    pattern:'Analizas cada posibilidad hasta que la oportunidad pasa. Tu mente construye la vasija perfecta… y la sigue puliendo mientras la vida pasa de largo.',
+    pattern:'Analizas cada posibilidad hasta que la oportunidad pasa. Tu mente construye el recipiente perfecto (lo que la Kabbalah llama la vasija)… y lo sigue puliendo mientras la vida pasa de largo.',
     signs:['Investigas, comparas y lees hasta que la oportunidad ya pasó.','Sientes que necesitas un curso más antes de empezar.','Esperas estar preparado, y ese día no llega.'],
-    root:'Biná es el entendimiento que construye la vasija. Cuando se excede, la vasija nunca se llena: es una gestación que no termina en nacimiento.',
+    root:'Biná es el entendimiento que construye la vasija: el recipiente donde se recibe. Cuando se excede, la vasija nunca se llena: es una gestación que no termina en nacimiento.',
     pTitle:'Cerrar la vasija',practice:['Pon un temporizador de 5 minutos.','Escribe una decisión que llevas meses aplazando y la fecha en que vas a actuar.','Cuéntaselo hoy mismo a una persona.'],
     dissolve:'La secuencia trabaja sobre Biná: el momento en que la mente suelta el control y deja nacer lo que ya está listo.'},
  4:{sef:'Jésed · la Bondad',esfera:'Jésed',name:'El Tikún del Dar',mirror:'Prestas lo que no te sobra. Y te da vergüenza cobrarlo.',
@@ -682,7 +748,7 @@ function show(n, scroll=true){
   const ul=$('resSigns'); ul.innerHTML='';
   t.signs.forEach(txt=>{const li=document.createElement('li');const b=document.createElement('button');b.type='button';b.setAttribute('aria-pressed','false');
     b.innerHTML='<span class="ck" aria-hidden="true"></span><span></span>';b.lastChild.textContent=txt;
-    b.addEventListener('click',()=>{const on=b.getAttribute('aria-pressed')!=='true';b.setAttribute('aria-pressed',on);b.firstChild.textContent=on?'✓':'';countSigns();if(on)track('senal_marcada',{tikun:current})});
+    b.addEventListener('click',()=>{const on=b.getAttribute('aria-pressed')!=='true';b.setAttribute('aria-pressed',on);b.firstChild.textContent=on?'✓':'';countSigns();if(on){track('senal_marcada',{tikun:current});Sound.sfx('clic');}});
     li.appendChild(b);ul.appendChild(li)});
   countSigns();
   $('resRoot').textContent=t.root; $('resPracticeTitle').textContent='Práctica: '+t.pTitle;
@@ -690,8 +756,8 @@ function show(n, scroll=true){
   const img=$('resImg'); img.src=`img/tikun-${n}.webp`; img.alt=`Grabado del ${t.name}`;
   $('offEyebrow').textContent=`Tu Tikún ${n} · ${t.esfera}`;
   $('offTitle').textContent=`Tu Tikún ${n} tiene una forma de trabajarse`;
-  $('offDissolve').textContent=t.dissolve;
-  document.querySelectorAll('.buy').forEach(a=>a.href=`${HOTMART_URL}?sck=tikun-${n}`);
+  $('offDissolve').textContent=`Silencio con el sonido binaural. Tú sostienes la intención de tu esfera, ${t.esfera}: ${t.dissolve.split(': ').slice(1).join(': ')}`;
+  document.querySelectorAll('.buy').forEach(a=>a.href=`${HOTMART_URL}?sck=tikun-${n}-${VARIANTE}`);
   drawTree($('resTree'), n);
   $('resultado').classList.add('show');
   $('activacion').classList.remove('show'); $('sticky').classList.remove('show');
@@ -703,8 +769,10 @@ function countSigns(){
   document.getElementById('signCount').textContent = on===0 ? '' : on===3 ? 'Las tres. Tu mapa habla de ti.' : `${on} de 3.`;
 }
 document.getElementById('yes').addEventListener('click',()=>{
-  track('si_soy_yo',{tikun:current});
+  track('si_soy_yo',{tikun:current}); Sound.sfx('candado');
+  if(VARIANTE==='b'){ setTimeout(()=>{ location.href=`capitulo.html?tikun=${current}`; },150); return; }
   const act=document.getElementById('activacion'); act.classList.add('show');
+  const cv=document.getElementById('chestVid'); if(cv){ cv.preload='auto'; cv.play().catch(()=>{}); }
   setURL(`?tikun=${current}#activacion`);
   goTo(act);
 });
@@ -766,20 +834,30 @@ async function reveal(d,m,y,t){
   const g=k=>tree.querySelector(`[data-k="${k}"]`);
   for(let k=1;k<=t;k++){ if(k>1) g(k-1).classList.remove('pass'); g(k).classList.add('pass'); await sleep(230); }
   g(t).classList.remove('pass'); g(t).classList.add('on','fill');
-  $('rvSt').textContent=`Tu Tikún es el ${t}`;
+  $('rvSt').textContent=`Tu Tikún es el ${t}`; Sound.sfx('cuenco');
   await sleep(1100);
-  show(t);
+  show(t); Sound.narr('resultado');
   box.hidden=true; form.hidden=false;
 }
 
+/* Interludio: el pergamino se despliega mientras Ernesto narra */
+function interlude(){
+  return new Promise(res=>{
+    const box=document.getElementById('interlude'), v=document.getElementById('scrollVid');
+    try{ v.currentTime=0; v.play().catch(()=>{}); }catch(_){}
+    box.classList.add('on');
+    setTimeout(()=>{ box.classList.remove('on'); setTimeout(()=>{ try{v.pause()}catch(_){}; res(); },800); },4200);
+  });
+}
 async function calcular(){
   if(revealing) return;
   const d=+dS.value,m=+mS.value,y=+yS.value,err=document.getElementById('quizErr');
   if(!d||!m||!y){err.textContent='Elige día, mes y año de tu nacimiento.';err.style.display='block';return}
   if(!validDate(d,m,y)){err.textContent=`${MESES[m-1]} no tiene ${d} días en ${y}. Revisa la fecha.`;err.style.display='block';return}
   err.style.display='none';
-  const t=tikunOf(d,m,y); track('test_completado',{tikun:t});
+  const t=tikunOf(d,m,y); track('test_completado',{tikun:t}); Sound.narr('calculo');
   revealing=true;
+  await interlude();
   try{ await reveal(d,m,y,t); }
   catch(_){ document.getElementById('reveal').hidden=true; document.getElementById('quiz').hidden=false; show(t); }
   finally{ revealing=false; }
@@ -790,6 +868,60 @@ document.getElementById('quiz').addEventListener('submit',e=>{e.preventDefault()
 /* Si llegan con ?tikun=N (por ejemplo desde un correo), mostrar el resultado */
 const qp=+new URLSearchParams(location.search).get('tikun'), wantsOffer=location.hash==='#activacion';
 if(qp>=1&&qp<=9){ show(qp,false); if(wantsOffer){ document.getElementById('activacion').classList.add('show'); setURL(`?tikun=${qp}#activacion`); goTo(document.getElementById('activacion')); } }
+
+/* ===== Sonido: música de fondo + narración de Ernesto (todo arranca con el toque de entrada) ===== */
+const Sound=(function(){
+  const BG_VOL=.55, BG_DUCK=.16;
+  const bg=new Audio('audio/fondo-misterio.mp3'); bg.loop=true; bg.preload='auto'; bg.volume=0;
+  const opener=new Audio('audio/apertura-misterio.mp3'); opener.preload='auto'; let opened=false;
+  const NARR={bienvenida:'audio/narr-1-bienvenida.mp3',calculo:'audio/narr-2-calculo.mp3',resultado:'audio/narr-3-resultado.mp3'};
+  let on=false, talking=0, fadeT=null; const played={};
+  const btn=document.getElementById('soundBtn');
+  function fadeTo(v,ms=900){ clearInterval(fadeT); const step=(v-bg.volume)/(ms/50); fadeT=setInterval(()=>{ const nv=bg.volume+step; if((step>0&&nv>=v)||(step<0&&nv<=v)||step===0){ bg.volume=Math.max(0,Math.min(1,v)); clearInterval(fadeT); } else bg.volume=Math.max(0,Math.min(1,nv)); },50); }
+  function level(){ if(on) fadeTo(talking>0?BG_DUCK:BG_VOL); if(talking>0&&!opener.paused) opener.volume=Math.min(opener.volume,.22); }
+  function talk(a){ a.addEventListener('play',()=>{talking++;level()}); const end=()=>{talking=Math.max(0,talking-1);level()}; a.addEventListener('pause',end); a.addEventListener('ended',end); }
+  function start(){
+    on=true; btn.classList.add('show'); btn.textContent='🔊';
+    if(!opened){
+      opened=true; opener.volume=.8; opener.play().catch(()=>{});
+      // A los 4 s entra el misterio constante; a los 5 s la apertura se desvanece
+      setTimeout(()=>{ if(on) bg.play().then(()=>fadeTo(talking>0?BG_DUCK:BG_VOL,3500)).catch(()=>{}); },4000);
+      setTimeout(()=>{ const f=setInterval(()=>{ opener.volume=Math.max(0,opener.volume-.04); if(opener.volume<=.01){ clearInterval(f); opener.pause(); } },150); },5000);
+    } else bg.play().then(()=>fadeTo(BG_VOL,1500)).catch(()=>{});
+  }
+  function narr(k){
+    if(!on||played[k]) return; played[k]=true;
+    const a=new Audio(NARR[k]); talk(a); a.play().catch(()=>{}); track('narracion',{parte:k});
+  }
+  btn.addEventListener('click',()=>{
+    if(on){ on=false; opener.pause(); fadeTo(0,400); setTimeout(()=>bg.pause(),450); btn.textContent='🔇'; btn.setAttribute('aria-label','Activar sonido'); track('sonido',{estado:'apagado'}); }
+    else { start(); btn.setAttribute('aria-label','Silenciar sonido'); track('sonido',{estado:'encendido'}); }
+  });
+  const va=document.getElementById('voiceAudio'); if(va) talk(va);
+  const SFX={}; ['puerta','cuenco','clic','candado','llaves','cadenas','mensaje'].forEach(k=>{ const a=new Audio('audio/sfx-'+k+'.mp3'); a.preload='auto'; SFX[k]=a; });
+  const SFX_VOL={puerta:.8,cuenco:.7,clic:.9,candado:1,llaves:.9,cadenas:.5,mensaje:.6};
+  function sfx(k){ if(!on||!SFX[k]) return; try{ const a=SFX[k].cloneNode(); a.volume=SFX_VOL[k]||.8; a.play().catch(()=>{}); }catch(_){} }
+  return {start,narr,sfx,get on(){return on}};
+})();
+
+/* Entrada cinematográfica: el Árbol se enciende esfera por esfera; un toque activa el sonido */
+(function(){
+  const intro=document.getElementById('intro');
+  if(qp>=1&&qp<=9){ intro.remove(); return; }
+  document.body.style.overflow='hidden';
+  const door=document.getElementById('doorVid');
+  const enter=withSound=>{
+    track('intro_entrar',{con_sonido:withSound});
+    if(withSound){ Sound.start(); Sound.sfx('puerta'); }
+    else document.getElementById('soundBtn').classList.add('show');
+    try{ door.currentTime=0; door.play().catch(()=>{}); }catch(_){}
+    intro.classList.add('opening');
+    setTimeout(()=>{ intro.classList.add('out'); document.body.style.overflow=''; if(withSound) Sound.narr('bienvenida'); },2300);
+    setTimeout(()=>intro.remove(),4000);
+  };
+  document.getElementById('enterBtn').addEventListener('click',()=>enter(true),{once:true});
+  document.getElementById('enterMute').addEventListener('click',()=>{ document.getElementById('soundBtn').textContent='🔇'; enter(false); },{once:true});
+})();
 
 /* ===== Captura de correos (Brevo vía /api/subscribe) ===== */
 async function lead(form, payload, formWrap, okBox){
