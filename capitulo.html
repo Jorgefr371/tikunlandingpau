@@ -153,6 +153,7 @@ footer{border-top:1px solid var(--line-soft);padding:30px 0 90px;font-size:17px;
 footer p + p{margin-top:8px}
 @media (min-width:600px){.wall{grid-template-columns:1fr 1fr}.sticky{display:none!important}}
 </style>
+<link rel="stylesheet" href="oferta.css">
 </head>
 <body>
 
@@ -191,9 +192,10 @@ footer p + p{margin-top:8px}
   <div class="wrap">
     <p class="eyebrow">La última página del mapa</p>
     <h2>Lo que necesitas saber antes de dar el paso</h2>
-    <h3 style="margin-top:22px">La voz del círculo</h3>
+    <h3 style="margin-top:22px">Mensajes que llegan al círculo</h3>
     <div class="wall">
       <figure><img src="img/comentarios/comentario-3.webp" alt="Mensaje de un seguidor: hice el ritual con mucha fe, escribí la cantidad, puse el vaso con agua y sal sobre el papel y encendí la vela; la llama creció mientras decía la oración y se apagó sola al terminar." loading="lazy" width="738" height="680"></figure>
+      <figure><img src="img/mensajes/msg-antonio.webp" alt="Mensaje de Antonio pidiendo ayuda para activar los 7 sellos de protección; recibe los códices y responde: Gracias hermano." loading="lazy" width="738" height="1245"></figure>
       <figure><img src="img/comentarios/comentarios-facebook.jpg" alt="Comentarios en un video de Código Abundante en Facebook." loading="lazy" width="738" height="1070"></figure>
       <figure><img src="img/comentarios/comentarios-youtube.jpg" alt="Comentarios en videos de Código Abundante en YouTube." loading="lazy" width="1160" height="1390"></figure>
     </div>
@@ -211,8 +213,10 @@ footer p + p{margin-top:8px}
     <details><summary>¿Cuándo lo recibo?</summary><p>Apenas pagas, te mostramos en pantalla cómo entrar y te llega un correo de Hotmart con tu acceso. Si no lo ves, revisa promociones o spam. Si pagas en efectivo, llega cuando el pago se confirma.</p></details>
     <details><summary>¿Por qué cuesta tan poco?</summary><p>Porque queremos que cualquier persona que se reconozca en su mapa pueda empezar a trabajarlo, sin que el precio sea la traba. Es nuestro precio de lanzamiento.</p></details>
     <details><summary>¿Qué pasa si no es para mí?</summary><p>Tienes 7 días de garantía. Pides el reembolso desde Hotmart y te devuelven el 100%, sin preguntas.</p></details>
+    <details class="bono"><summary>¿Qué es El Sello de la Noche?</summary><p>Una meditación de 11 minutos con la voz de Ernesto, para escuchar antes de dormir. Viene de regalo para quien empiece su Activación antes del 31 de octubre.</p></details>
 
-    <a class="btn buy" href="#" rel="noopener" data-ubicacion="final">Sí, quiero continuar mi mapa</a>
+    <p style="margin-top:30px;text-align:center"><span class="xl oro" style="display:block">Riesgo cero</span>Escúchalo durante 7 días. Si sientes que no era para ti, te devuelven <b class="verde">el 100% de tu dinero</b>, sin preguntas.</p>
+    <a class="btn buy" href="#" rel="noopener" data-ubicacion="final">Sí, quiero que el dinero se quede</a>
     <p class="paynote">Pago seguro en Hotmart · Precio en tu moneda · Garantía de 7 días</p>
   </div>
 </section>
@@ -319,15 +323,19 @@ const TIME={
 function offer(){
   if($('offerCard')) return $('offerCard').scrollIntoView({behavior:'smooth',block:'start'});
   const d=document.createElement('div'); d.className='offer'; d.id='offerCard';
-  d.innerHTML=`<video class="bgv" src="escenas/cofre.mp4" poster="escenas/cofre.jpg" autoplay muted loop playsinline aria-hidden="true"></video><p class="eyebrow">Tu Tikún ${N} · ${t.esfera}</p><h2>El siguiente paso de tu mapa</h2>
-    <p>La <em>Activación Tikún 33</em>: la práctica para trabajar tu punto de traba en ${t.esfera}.</p>
-    <ul class="includes"><li><span>Audio de 33 minutos guiado por Ernesto</span><span>$27</span></li><li><span>Calendario de 33 días</span><span>$15</span></li><li><span>Manual con 8 guías a color</span><span>$35</span></li></ul>
-    <p class="mini">Valor total <s>$77 USD</s> · hoy</p><div class="now">$9.99 USD</div>
-    <p class="mini">Pago único · acceso inmediato · garantía de 7 días</p>
+  d.innerHTML=`<video class="bgv" src="escenas/cofre.mp4" poster="escenas/cofre.jpg" autoplay muted loop playsinline aria-hidden="true"></video>
+    <div class="urg bono"><p class="t">Regalo: El Sello de la Noche</p><p class="s">Solo para quien empiece antes del <b>31 de octubre</b></p><div class="cd" aria-label="Tiempo que queda para recibir el regalo"></div></div>
+    <p class="eyebrow">Tu Tikún ${N} · ${t.esfera}</p><h2>El siguiente paso de tu mapa</h2>
+    <p>La <em>Activación Tikún 33</em>: la práctica para trabajar tu punto de traba en ${t.esfera}, <span class="hl">33 minutos al día durante 33 días</span>.</p>
+    <ul class="includes"><li><span>Audio de 33 minutos guiado por Ernesto</span><span>$27</span></li><li><span>Manual con 8 guías a color</span><span>$35</span></li><li><span>Calendario de 33 días</span><span>$15</span></li><li class="bono"><span><b class="rojo">Regalo:</b> El Sello de la Noche, meditación de 11 min para la noche</span><span>$19</span></li></ul>
+    <p class="mini">Todo junto vale <s data-sin-bono="$77 USD">$96 USD</s> · hoy</p><div class="now">$9.99 USD</div>
+    <span class="ahorro" data-sin-bono="Ahorras $67">Ahorras $86</span>
+    <p class="dia">Son <b class="oro xl">menos de $0.31</b> al día durante tus 33 días.</p>
+    <p class="mini">Pago único · acceso inmediato · <b class="verde">riesgo cero: garantía de 7 días</b></p>
     <p style="font-size:18px;margin-top:12px;font-style:italic">No reemplaza tu fe: la acompaña. Puedes seguir rezando como siempre.</p>
-    <a class="btn buy" href="#" rel="noopener" data-ubicacion="chat">Sí, quiero continuar mi mapa</a>
+    <a class="btn buy" href="#" rel="noopener" data-ubicacion="chat">Sí, quiero que el dinero se quede</a>
     <p class="paynote">Al tocar, pagas en <b>Hotmart</b>, la plataforma segura donde queda tu acceso. Te pide tu nombre, tu correo y la forma de pago, y ves el precio en tu moneda. Toma 1 minuto.</p>`;
-  chat.appendChild(d); wireBuy(); $('ultima').hidden=false; track('oferta_vista'); sfx('candado'); setTimeout(()=>sfx('cadenas'),500); stickyWatch(); setTimeout(()=>d.scrollIntoView({behavior:'smooth',block:'start'}),80);
+  chat.appendChild(d); if(window.Oferta) Oferta.tick(); wireBuy(); $('ultima').hidden=false; track('oferta_vista'); sfx('candado'); setTimeout(()=>sfx('cadenas'),500); stickyWatch(); setTimeout(()=>d.scrollIntoView({behavior:'smooth',block:'start'}),80);
 }
 function wireBuy(){
   document.querySelectorAll('.buy').forEach(a=>{
@@ -401,5 +409,6 @@ $('startEyebrow').textContent=`Tu Tikún ${N} · ${t.esfera}`;
 $('skip').addEventListener('click',e=>{ e.preventDefault(); track('chat_atajo'); $('start').hidden=true; offer(); });
 wireBuy();
 </script>
+<script src="oferta.js"></script>
 </body>
 </html>

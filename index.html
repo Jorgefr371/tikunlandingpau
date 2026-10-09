@@ -379,6 +379,7 @@ section,.block,.second,.ask{scroll-margin-top:64px}
   .res-head{grid-template-columns:1fr 1fr}
 }
 </style>
+<link rel="stylesheet" href="oferta.css">
 </head>
 <body>
 
@@ -514,53 +515,97 @@ section,.block,.second,.ask{scroll-margin-top:64px}
   <div class="wrap">
     <div class="offer-top">
       <video class="bgv" src="escenas/cofre.mp4" poster="escenas/cofre.jpg" muted loop playsinline preload="none" aria-hidden="true" id="chestVid"></video>
+      <div class="urg bono">
+        <p class="t">Regalo: El Sello de la Noche</p>
+        <p class="s">Solo para quien empiece antes del <b>31 de octubre</b></p>
+        <div class="cd" aria-label="Tiempo que queda para recibir el regalo"></div>
+      </div>
       <p class="eyebrow" id="offEyebrow"></p>
       <h2 id="offTitle"></h2>
-      <p style="font-size:21px;margin:-6px 0 16px">Ahora, 33 minutos al día para trabajarlo.</p>
+      <p style="font-size:21px;margin:-6px 0 16px">Ahora, <span class="hl">33 minutos al día</span> para trabajarlo.</p>
       <button class="voice" id="voice" type="button" hidden aria-pressed="false">
         <img src="img/ernesto.webp" alt="" width="52" height="52" onerror="this.remove()">
         <span>Escucha a Ernesto<small>1 minuto · sube el volumen</small></span>
         <span class="play" id="voicePlay" aria-hidden="true">▶</span>
       </button>
       <audio id="voiceAudio" preload="metadata" src="audio/ernesto-activacion.mp3"></audio>
-      <p class="what">La <em>Activación Tikún 33</em>: un audio de 33 minutos guiado por la voz de Ernesto, para escuchar durante 33 días, con un manual de 8 guías a color.</p>
-      <p class="mini">Valor total <s>$77 USD</s> · hoy</p>
+      <p class="ba-t">Lo que trabajas en tus 33 días</p>
+      <div class="ba" id="offBA"></div>
+      <p class="ba-note">Es una práctica diaria, no una promesa de dinero.</p>
+      <p class="what">La <em>Activación Tikún 33</em>: un audio de 33 minutos con la voz de Ernesto, <b class="oro">para escuchar durante 33 días</b>, con un manual de 8 guías a color.</p>
+      <p class="mini">Todo junto vale <s data-sin-bono="$77 USD">$96 USD</s> · hoy</p>
       <div class="now">$9.99 USD</div>
       <p class="mini">Pago único · acceso inmediato · garantía de 7 días</p>
       <p style="font-size:18px;margin-top:12px;font-style:italic">No reemplaza tu fe: la acompaña. Puedes seguir rezando como siempre.</p>
-      <a class="btn buy" href="#" rel="noopener">Sí, quiero empezar mi Activación</a>
+      <a class="btn buy" href="#" rel="noopener">Sí, quiero que el dinero se quede</a>
       <p class="paynote">Al tocar, pagas en <b>Hotmart</b>, la plataforma segura donde queda tu acceso. Te pide tu nombre, tu correo y la forma de pago, y ves el precio en tu moneda. Toma 1 minuto.</p>
     </div>
 
     <div class="block rv">
-      <h3>La voz del círculo</h3>
+      <h3>Qué recibes hoy</h3>
+      <div class="pieza">
+        <p class="n">Pieza 1 · El corazón</p>
+        <h4>Audio guiado Activación Tikún 33</h4>
+        <p>33 minutos con la voz de Ernesto, sobre un sonido binaural que ayuda a la mente a soltar. <b class="oro">Cierras los ojos y él te guía.</b> No tienes que saber nada: solo escuchar.</p>
+        <div class="moments">
+          <div class="moment"><span class="t">Min 1–11</span><div><b>Entrada</b>Ernesto te guía a respirar y bajar el ritmo, hasta que la mente deja de hacer listas.</div></div>
+          <div class="moment"><span class="t">Min 11–22</span><div><b>Disolución</b><span id="offDissolve"></span></div></div>
+          <div class="moment"><span class="t">Min 22–33</span><div><b>Expansión</b>Ernesto te trae de regreso y te deja la frase del día, para llevarla contigo.</div></div>
+        </div>
+        <span class="v">Valor: $27 USD</span>
+      </div>
+      <div class="pieza">
+        <p class="n">Pieza 2</p>
+        <h4>Manual con 8 guías a color</h4>
+        <p>Las prácticas de tus 33 días, <span class="hl">explicadas paso a paso</span>, para que nunca te quedes sin saber qué hacer.</p>
+        <img class="bonos" src="img/bonos.webp" alt="La Activación Tikún 33 con sus 8 guías: 12 Rituales para el Éxito, 11 Principios Kabbalísticos para la Riqueza, Dinero Cósmico, Los Decretos de Poder, Geometría Sagrada, La Mente Abundante, Las Meditaciones de la Prosperidad y 33 Oraciones para la Riqueza" loading="lazy" width="1200" height="401">
+        <ul class="glist">
+          <li>12 Rituales para el Éxito</li><li>11 Principios Kabbalísticos</li><li>Dinero Cósmico</li><li>Los Decretos de Poder</li>
+          <li>Geometría Sagrada</li><li>La Mente Abundante</li><li>Meditaciones de la Prosperidad</li><li>33 Oraciones para la Riqueza</li>
+        </ul>
+        <span class="v">Valor: $35 USD</span>
+      </div>
+      <div class="pieza">
+        <p class="n">Pieza 3</p>
+        <h4>Calendario de 33 días</h4>
+        <p>Marcas cada día que escuchas y <b class="verde">ves tu avance</b>. Si un día fallas, retomas al siguiente sin empezar de cero.</p>
+        <span class="v">Valor: $15 USD</span>
+      </div>
+      <div class="pieza regalo bono">
+        <p class="n">Regalo · solo hasta el 31 de octubre</p>
+        <h4>El Sello de la Noche</h4>
+        <p>Una meditación de 11 minutos para escuchar ya acostado. Ernesto te ayuda a <span class="hl">dejar las cuentas fuera del cuarto</span> y a cerrar el día en paz.</p>
+        <span class="v">Valor: $19 USD · <b class="rojo">gratis si empiezas antes del 31 de octubre</b></span>
+      </div>
+    </div>
+
+    <div class="price rv" id="priceBox">
+      <h3>Todo lo que recibes hoy</h3>
+      <ul class="stack">
+        <li><span>Audio guiado Activación Tikún 33 (33 min, voz de Ernesto)</span><span>$27</span></li>
+        <li><span>Manual con 8 guías a color</span><span>$35</span></li>
+        <li><span>Calendario de 33 días</span><span>$15</span></li>
+        <li class="bono"><span><b class="rojo">Regalo:</b> El Sello de la Noche (11 min)</span><span>$19</span></li>
+      </ul>
+      <p class="was">Valor total: <s data-sin-bono="$77 USD">$96 USD</s></p>
+      <span class="tag" data-sin-bono="Precio especial de lanzamiento">Lanzamiento + regalo hasta el 31 de octubre</span>
+      <div class="amt">$9.99 USD</div>
+      <span class="ahorro" data-sin-bono="Ahorras $67">Ahorras $86</span>
+      <p class="dia">Son <b class="oro xl">menos de $0.31</b> al día durante tus 33 días.</p>
+      <p class="sub">Menos que un café. Pago único. Acceso inmediato.</p>
+      <a class="btn buy" href="#" rel="noopener">Sí, quiero que el dinero se quede</a>
+      <p class="paynote">Al tocar, pagas en <b>Hotmart</b>, la plataforma segura donde queda tu acceso. Ves el precio en tu moneda. Toma 1 minuto.</p>
+    </div>
+
+    <div class="block rv">
+      <h3>Mensajes que llegan al círculo</h3>
       <div class="wall" id="wall">
         <figure><img src="img/comentarios/comentario-3.webp" alt="Mensaje de un seguidor: hice el ritual con mucha fe, escribí la cantidad, puse el vaso con agua y sal sobre el papel y encendí la vela; la llama creció mientras decía la oración y se apagó sola al terminar." loading="lazy" width="738" height="680"></figure>
+        <figure><img src="img/mensajes/msg-antonio.webp" alt="Mensaje de Antonio pidiendo ayuda para activar los 7 sellos de protección; recibe los códices y responde: Gracias hermano." loading="lazy" width="738" height="1245"></figure>
         <figure><img src="img/comentarios/comentarios-facebook.jpg" alt="Comentarios en un video de Código Abundante en Facebook: Yo soy el que soy ahora y siempre; Sí hay un poder superior que me guía y abrió mis caminos; Yo soy el que soy, Ehyeh Asher en la zarza." loading="lazy" width="738" height="1070"></figure>
         <figure><img src="img/comentarios/comentarios-youtube.jpg" alt="Comentarios en videos de Código Abundante en YouTube: Todos; Hecho está, amén; Amén, gracias por compartir, bendiciones." loading="lazy" width="1160" height="1390"></figure>
       </div>
       <p class="wall-note">Mensajes y comentarios reales de nuestra comunidad. Nombres y fotos ocultos por privacidad.</p>
-    </div>
-
-    <div class="block rv">
-      <h3>Cómo funciona</h3>
-      <p>Leer tu mapa te muestra dónde se traba el flujo. Trabajarlo pide otra cosa: silencio, repetición y un momento en que la mente deja de pelear.</p>
-      <p>Te pones audífonos, cierras los ojos y la voz de Ernesto te guía, sobre un sonido binaural que ayuda a la mente a soltar. Se escucha durante 33 días, a la misma hora si puedes.</p>
-      <div class="moments">
-        <div class="moment"><span class="t">Min 1–11</span><div><b>Entrada</b>Ernesto te guía a respirar y bajar el ritmo, hasta que la mente deja de hacer listas.</div></div>
-        <div class="moment"><span class="t">Min 11–22</span><div><b>Disolución</b><span id="offDissolve"></span></div></div>
-        <div class="moment"><span class="t">Min 22–33</span><div><b>Expansión</b>Ernesto te trae de regreso y te deja la frase del día, para llevarla contigo.</div></div>
-      </div>
-    </div>
-
-    <div class="block rv">
-      <h3>Qué recibes</h3>
-      <p>El audio de 33 minutos y, junto con él, un manual con 8 guías a color para acompañar tus 33 días:</p>
-      <img class="bonos" src="img/bonos.webp" alt="La Activación Tikún 33 con sus 8 guías: 12 Rituales para el Éxito, 11 Principios Kabbalísticos para la Riqueza, Dinero Cósmico, Los Decretos de Poder, Geometría Sagrada, La Mente Abundante, Las Meditaciones de la Prosperidad y 33 Oraciones para la Riqueza" loading="lazy" width="1200" height="401">
-      <ul class="glist">
-        <li>12 Rituales para el Éxito</li><li>11 Principios Kabbalísticos</li><li>Dinero Cósmico</li><li>Los Decretos de Poder</li>
-        <li>Geometría Sagrada</li><li>La Mente Abundante</li><li>Meditaciones de la Prosperidad</li><li>33 Oraciones para la Riqueza</li>
-      </ul>
     </div>
 
     <div class="letter rv">
@@ -578,24 +623,9 @@ section,.block,.second,.ask{scroll-margin-top:64px}
       <p class="sign">— María Paula, nieta de Ernesto</p>
     </div>
 
-    <div class="price rv" id="priceBox">
-      <h3>Activación Tikún 33</h3>
-      <ul class="stack">
-        <li><span>Audio guiado Activación Tikún 33 (33 min, voz de Ernesto)</span><span>$27</span></li>
-        <li><span>Calendario de 33 días</span><span>$15</span></li>
-        <li><span>Manual con 8 guías a color</span><span>$35</span></li>
-      </ul>
-      <p class="was">Valor total: <s>$77 USD</s></p>
-      <span class="tag">Precio especial de lanzamiento</span>
-      <div class="amt">$9.99 USD</div>
-      <p class="sub">Pago único. Acceso inmediato.</p>
-      <a class="btn buy" href="#" rel="noopener">Sí, quiero empezar mi Activación</a>
-      <p class="paynote">Al tocar, pagas en <b>Hotmart</b>, la plataforma segura donde queda tu acceso. Ves el precio en tu moneda. Toma 1 minuto.</p>
-    </div>
-
-    <div class="guarantee">
+    <div class="guarantee riesgo">
       <img class="seal" src="img/garantia.webp" alt="Sello de garantía de 7 días" width="110" height="110">
-      <p><b style="font-family:var(--display);font-weight:600">Garantía de 7 días.</b> Escúchalo. Si sientes que no era para ti, pides el reembolso desde Hotmart y te devuelven el 100%, sin preguntas.</p>
+      <p><span class="xl oro">Riesgo cero</span>Escúchalo durante 7 días. Si sientes que no era para ti, pides el reembolso desde Hotmart y te devuelven <b class="verde">el 100% de tu dinero</b>, sin preguntas.</p>
     </div>
 
     <div class="block">
@@ -603,7 +633,7 @@ section,.block,.second,.ask{scroll-margin-top:64px}
       <ol class="steps">
         <li><span>Tocas el botón y pagas en Hotmart, con tarjeta u otros métodos según tu país.</span></li>
         <li><span>Apenas pagas, te mostramos en pantalla los pasos exactos para entrar. Además te llega un correo de Hotmart con tu acceso. Revisa también promociones o spam.</span></li>
-        <li><span>Te pones audífonos y escuchas. El manual con las 8 guías se descarga desde el mismo acceso.</span></li>
+        <li><span>Te pones audífonos y escuchas. El manual con las 8 guías<span class="bono"> y tu regalo, El Sello de la Noche,</span> están en el mismo acceso.</span></li>
       </ol>
     </div>
 
@@ -617,9 +647,10 @@ section,.block,.second,.ask{scroll-margin-top:64px}
       <details><summary>¿Cómo pago desde mi país?</summary><p>Hotmart te muestra el precio en tu moneda y los métodos de pago de tu país: tarjeta, PayPal y opciones locales, como Mercado Pago en México. Si eliges pagar en efectivo, tu acceso llega cuando el pago se confirma.</p></details>
       <details><summary>¿Dónde me llega lo que compro?</summary><p>Apenas pagas, te mostramos en pantalla cómo entrar. También te llega un correo de Hotmart con tu acceso, donde están el audio y las 8 guías. Si no lo ves, revisa promociones o spam.</p></details>
       <details><summary>¿Es un pago mensual?</summary><p>No. Pagas una sola vez y el acceso es tuyo.</p></details>
+      <details class="bono"><summary>¿Qué es El Sello de la Noche?</summary><p>Una meditación de 11 minutos con la voz de Ernesto, para escuchar antes de dormir. Viene de regalo para quien empiece su Activación antes del 31 de octubre.</p></details>
     </div>
 
-    <a class="btn buy" href="#" rel="noopener" style="margin-top:34px">Sí, quiero empezar mi Activación</a>
+    <a class="btn buy" href="#" rel="noopener" style="margin-top:34px">Sí, quiero que el dinero se quede</a>
     <p class="paynote">Pago seguro en Hotmart · Precio en tu moneda · Garantía de 7 días</p>
 
   </div>
@@ -656,54 +687,63 @@ const TIKUN = {
  1:{sef:'Kéter · la Corona',esfera:'Kéter',name:'El Tikún del Origen',mirror:'Tienes la idea antes que nadie. Y ves a otro cobrarla.',
     pattern:'La voluntad nace en ti con fuerza, pero no desciende. Empiezas, visualizas, planeas… y el trazo se queda en el primer punto. El dinero no llega porque la idea nunca toca el suelo.',
     signs:['Empiezas proyectos con mucha energía y los abandonas a la mitad.','Ves a otros ganar dinero con ideas que tú tuviste primero.','Sientes que naciste para algo grande, pero no sabes por dónde aterrizarlo.'],
+    after:["Terminas lo que empiezas, un paso pequeño cada día.","Tu idea toca el suelo antes de que otro la tome.","Sabes cuál es tu primer trazo, y lo das."],
     root:'Kéter es voluntad pura, anterior a cualquier forma. En ti, la voluntad se queda arriba porque elegir una sola forma se siente como renunciar a todas las demás.',
     pTitle:'El primer trazo',practice:['Escribe tu idea en una sola línea.','Debajo, anota la acción más pequeña que puedas hacer hoy en 5 minutos.','Hazla antes de dormir. No la mejor acción: la primera.'],
     dissolve:'La secuencia trabaja sobre Kéter: el paso de la idea a la materia, justo donde tu trazo se detiene.'},
  2:{sef:'Jojmá · la Sabiduría',esfera:'Jojmá',name:'El Tikún del Destello',mirror:'Todos te piden consejo. Nadie te paga por él.',
     pattern:'Ves lo que otros no ven, y lo regalas. Tu conocimiento circula, pero no regresa convertido en sustento, porque nunca le pusiste recipiente.',
     signs:['Todos te piden consejo y nunca cobras por darlo.','Te incomoda cobrar por lo que te sale fácil.','Cuando por fin cobras, pides menos de lo que vale.'],
+    after:["Tu consejo empieza a tener un valor que tú nombras.","Cobrar por lo que sabes deja de darte vergüenza.","Dices tu precio completo, sin rebajarlo."],
     root:'Jojmá es luz sin recipiente. En el Árbol, la esfera siguiente, Biná, le da forma. Cobrar es ponerle recipiente a tu luz; si no lo haces, se derrama.',
     pTitle:'El recipiente',practice:['Anota 3 cosas por las que la gente te pide ayuda.','Al lado de cada una, escribe cuánto le cobrarías a un desconocido.','Dilo en voz alta una vez, sin bajar la voz al final.'],
     dissolve:'La secuencia trabaja sobre Jojmá: darle recipiente a lo que sabes, para que pueda volver a ti.'},
  3:{sef:'Biná · el Entendimiento',esfera:'Biná',name:'El Tikún de la Vasija',mirror:'Llevas años preparándote para empezar.',
     pattern:'Analizas cada posibilidad hasta que la oportunidad pasa. Tu mente construye el recipiente perfecto (lo que la Kabbalah llama la vasija)… y lo sigue puliendo mientras la vida pasa de largo.',
     signs:['Investigas, comparas y lees hasta que la oportunidad ya pasó.','Sientes que necesitas un curso más antes de empezar.','Esperas estar preparado, y ese día no llega.'],
+    after:["Decides con lo que ya sabes.","Dejas de buscar un curso más para empezar.","Das el paso aunque no te sientas del todo listo."],
     root:'Biná es el entendimiento que construye la vasija: el recipiente donde se recibe. Cuando se excede, la vasija nunca se llena: es una gestación que no termina en nacimiento.',
     pTitle:'Cerrar la vasija',practice:['Pon un temporizador de 5 minutos.','Escribe una decisión que llevas meses aplazando y la fecha en que vas a actuar.','Cuéntaselo hoy mismo a una persona.'],
     dissolve:'La secuencia trabaja sobre Biná: el momento en que la mente suelta el control y deja nacer lo que ya está listo.'},
  4:{sef:'Jésed · la Bondad',esfera:'Jésed',name:'El Tikún del Dar',mirror:'Prestas lo que no te sobra. Y te da vergüenza cobrarlo.',
     pattern:'Tu mano está siempre abierta hacia afuera. Rescatas, prestas, resuelves. El flujo sale de ti sin medida y nunca encuentra el camino de regreso.',
     signs:['Prestas dinero que no vuelve.','Resuelves los problemas económicos de tu familia antes que los tuyos.','Decir “no” te hace sentir mala persona.'],
+    after:["Das desde lo que te sobra, no desde lo que te falta.","Tus cuentas también cuentan, y primero.","Dices “no” sin sentirte mala persona."],
     root:'Jésed es expansión, pero en el Árbol está equilibrada por Guevurá, el límite. Dar sin límite no es bondad completa: es un canal que se vacía.',
     pTitle:'La mano que vuelve',practice:['Anota a dónde se fue tu dinero este mes hacia otras personas.','Marca un caso en el que, la próxima vez, dirás con cariño: “esta vez no puedo”.','Ensaya esa frase en voz alta tres veces.'],
     dissolve:'La secuencia trabaja sobre Jésed: que lo que das aprenda el camino de regreso.'},
  5:{sef:'Guevurá · el Rigor',esfera:'Guevurá',name:'El Tikún del Muro',mirror:'Cuidas tanto el dinero que no lo dejas entrar.',
     pattern:'El miedo a perder levantó un muro. Controlas cada peso, desconfías de cada oportunidad. El mismo muro que protege lo poco que tienes impide que llegue más.',
     signs:['Te cuesta gastar incluso en lo necesario.','Desconfías de cualquier oportunidad nueva.','Por más que ahorres, nunca sientes que alcanza.'],
+    after:["Gastas en lo necesario sin culpa.","Miras una oportunidad nueva con calma, no con miedo.","Sientes que lo que tienes alcanza para empezar."],
     root:'Guevurá es la fuerza que contiene. Sin Jésed a su lado se vuelve din, juicio, y el juicio cierra puertas. El mismo muro que protege impide que entre algo nuevo.',
     pTitle:'Una puerta en el muro',practice:['Esta semana, da algo pequeño con intención: una propina, un café, un detalle.','Observa qué sientes en el cuerpo al soltarlo.','Escríbelo en una sola línea.'],
     dissolve:'La secuencia trabaja sobre Guevurá: abrir una puerta en el muro sin perder el orden.'},
  6:{sef:'Tiféret · la Belleza',esfera:'Tiféret',name:'El Tikún del Sostén',mirror:'Eres el pilar de todos. Y nadie pregunta quién te sostiene a ti.',
     pattern:'Estás en el centro del Árbol, equilibrando a todos. Pones tus necesidades al final de la lista, y el dinero, cuando por fin llega, lo recibes con culpa.',
     signs:['Pagas por otros y te dejas para el final.','Recibir un regalo te incomoda.','Te repites: “cuando todos estén bien, pienso en mí”.'],
+    after:["Te pones en la lista, no al final.","Recibes un regalo y solo dices “gracias”.","Pensar en ti deja de esperar a que todos estén bien."],
     root:'Tiféret es el corazón del Árbol, el que equilibra todo. Pero incluso el corazón físico se irriga a sí mismo antes de bombear al resto del cuerpo. Un centro que no recibe, se agota.',
     pTitle:'Recibir',practice:['Hoy, cuando alguien te agradezca o te dé algo, responde solo “gracias”.','No lo minimices ni lo devuelvas con otro favor.','Haz una cosa pequeña para ti, sin justificarla ante nadie.'],
     dissolve:'La secuencia trabaja sobre Tiféret: recibir sin culpa, desde el centro.'},
  7:{sef:'Nétzaj · la Victoria',esfera:'Nétzaj',name:'El Tikún del Esfuerzo',mirror:'Si fuera por esfuerzo, tu vida ya estaría resuelta.',
     pattern:'Todo te cuesta el doble. Trabajas, insistes, resistes… y el mes se cierra igual. Aprendiste que la abundancia se gana a la fuerza, y la fuerza agota el canal.',
     signs:['Vives en cansancio constante.','Crees que el dinero, para ser digno, tiene que costar.','Desconfías de lo que llega fácil.'],
+    after:["Trabajas sin vivir agotado.","El dinero puede llegar sin que te rompa.","Recibes lo que llega fácil sin desconfiar."],
     root:'Nétzaj es la victoria por persistencia, pero en el Árbol trabaja en pareja con Hod. Sola, la persistencia se convierte en lucha, y la lucha agota el canal por el que debería llegar.',
     pTitle:'El esfuerzo justo',practice:['Mira tus tareas de esta semana.','Tacha una que no produce nada, aunque te haga sentir ocupado.','Cambia ese tiempo por 5 minutos de descanso consciente.'],
     dissolve:'La secuencia trabaja sobre Nétzaj: que llegue sin que te rompa.'},
  8:{sef:'Hod · el Esplendor',esfera:'Hod',name:'El Tikún de la Palabra',mirror:'Sabes lo que vales. Pero dices un precio más bajo.',
     pattern:'El bloqueo vive en tu boca: cobrar, pedir, negociar. En el medio segundo antes de decir tu precio, algo lo reduce. Tu valor se pierde en la traducción.',
     signs:['Bajas tu precio en mitad de la frase.','No te atreves a pedir un aumento.','Justificas de más lo que cobras.'],
+    after:["Dices tu precio sin bajarlo a mitad de la frase.","Te atreves a pedir lo que mereces.","Cobras sin dar explicaciones de más."],
     root:'Hod gobierna la palabra y la forma. Su nombre está emparentado con hodaá, reconocimiento. El bloqueo no está en lo que sabes, sino en reconocer en voz alta lo que vales.',
     pTitle:'El medio segundo',practice:['Ponte frente a un espejo.','Di tu precio siete veces, con punto final.','Sin agregar ninguna explicación después.'],
     dissolve:'La secuencia trabaja sobre Hod: ese medio segundo en que tu palabra se encoge.'},
  9:{sef:'Yesod · el Fundamento',esfera:'Yesod',name:'El Tikún del Canal',mirror:'El dinero sí llega. Lo que no hace es quedarse.',
     pattern:'Yesod es el último canal antes del mundo material. En ti está abierto por los dos extremos: entra y se fuga. Imprevistos, deudas, gastos que aparecen justo cuando algo llega.',
     signs:['El dinero llega y en pocos días ya no está.','Aparecen gastos inesperados justo cuando entra algo.','Nunca logras tener un respaldo.'],
+    after:["Lo que llega encuentra dónde quedarse.","Los imprevistos ya no se llevan todo.","Empiezas a construir tu respaldo."],
     root:'Yesod es el último canal antes del mundo material, y la tradición lo asocia con lo que se guarda. Un canal sin sello deja escapar lo que transporta.',
     pTitle:'Sellar el canal',practice:['La próxima vez que recibas dinero, antes de gastar nada, separa una cantidad pequeña y fija.','Aunque sea el 1%: lo importante es el gesto, no el monto.','Guárdala en un lugar cerrado y ponle nombre.'],
     dissolve:'La secuencia trabaja sobre Yesod: sellar el canal para que lo que llega, permanezca.'}
@@ -777,6 +817,7 @@ function show(n, scroll=true){
   const img=$('resImg'); img.src=`img/tikun-${n}.webp`; img.alt=`Grabado del ${t.name}`;
   $('offEyebrow').textContent=`Tu Tikún ${n} · ${t.esfera}`;
   $('offTitle').textContent='Ya sabes dónde se detiene tu dinero';
+  $('offBA').innerHTML='<div class="h antes">Hoy</div><div class="h despues">En tus 33 días</div>'+t.signs.map((s,i)=>`<div class="c antes">${s}</div><div class="c despues">${t.after[i]}</div>`).join('');
   $('offDissolve').textContent=`Silencio con el sonido binaural. Tú sostienes la intención de tu esfera, ${t.esfera}: ${t.dissolve.split(': ').slice(1).join(': ')}`;
   document.querySelectorAll('.buy').forEach(a=>a.href=`${HOTMART_URL}?sck=tikun-${n}-${VARIANTE}`);
   drawTree($('resTree'), n);
@@ -1003,5 +1044,6 @@ document.querySelectorAll('[data-lead]').forEach(btn=>{
   form.addEventListener('submit',e=>{e.preventDefault();go()});
 });
 </script>
+<script src="oferta.js"></script>
 </body>
 </html>
