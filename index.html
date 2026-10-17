@@ -666,15 +666,11 @@ section,.block,.second,.ask{scroll-margin-top:64px}
 
 <script>
 /* ===== Configuración ===== */
-/* Prueba A/B: cada visitante queda en una versión fija. ?v=a o ?v=b la fuerza (para probar). */
+/* Prueba A/B pausada el 17 oct 2026: A dejó de vender desde el 13 oct, todos van a B. ?v=a fuerza A solo para probar. */
 const VARIANTE=(function(){
-  const q=new URLSearchParams(location.search).get('v');
-  try{
-    if(q==='a'||q==='b'){ localStorage.setItem('ab_variante',q); return q; }
-    let v=localStorage.getItem('ab_variante');
-    if(v!=='a'&&v!=='b'){ v=Math.random()<.5?'a':'b'; localStorage.setItem('ab_variante',v); }
-    return v;
-  }catch(_){ return (q==='a'||q==='b')?q:'a'; }
+  const v=new URLSearchParams(location.search).get('v')==='a'?'a':'b';
+  try{ localStorage.setItem('ab_variante',v); }catch(_){}
+  return v;
 })();
 try{ gtag('set','user_properties',{variante:VARIANTE}); }catch(_){}
 function track(name,params){ try{ if(window.gtag) gtag('event',name,Object.assign({variante:VARIANTE},params||{})) }catch(_){} }
