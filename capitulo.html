@@ -340,7 +340,7 @@ function offer(){
 function wireBuy(){
   document.querySelectorAll('.buy').forEach(a=>{
     if(a.dataset.wired) return; a.dataset.wired='1';
-    a.href=`${HOTMART_URL}?sck=tikun-${N}-b`;
+    a.href=`${HOTMART_URL}?checkoutMode=10&sck=tikun-${N}-b`;
     a.addEventListener('click',()=>track('click_comprar',{ubicacion:a.dataset.ubicacion}));
   });
 }

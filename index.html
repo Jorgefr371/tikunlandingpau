@@ -815,7 +815,7 @@ function show(n, scroll=true){
   $('offTitle').textContent='Ya sabes dónde se detiene tu dinero';
   $('offBA').innerHTML='<div class="h antes">Hoy</div><div class="h despues">En tus 33 días</div>'+t.signs.map((s,i)=>`<div class="c antes">${s}</div><div class="c despues">${t.after[i]}</div>`).join('');
   $('offDissolve').textContent=`Silencio con el sonido binaural. Tú sostienes la intención de tu esfera, ${t.esfera}: ${t.dissolve.split(': ').slice(1).join(': ')}`;
-  document.querySelectorAll('.buy').forEach(a=>a.href=`${HOTMART_URL}?sck=tikun-${n}-${VARIANTE}`);
+  document.querySelectorAll('.buy').forEach(a=>a.href=`${HOTMART_URL}?checkoutMode=10&sck=tikun-${n}-${VARIANTE}`);
   drawTree($('resTree'), n);
   $('resultado').classList.add('show');
   $('activacion').classList.remove('show'); $('sticky').classList.remove('show');
