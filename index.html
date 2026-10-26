@@ -666,11 +666,15 @@ section,.block,.second,.ask{scroll-margin-top:64px}
 
 <script>
 /* ===== Configuración ===== */
-/* Prueba A/B pausada el 17 oct 2026: A dejó de vender desde el 13 oct, todos van a B. ?v=a fuerza A solo para probar. */
+/* Prueba A/B reactivada el 26 oct 2026 (50/50). Cada visitante queda en una versión fija. ?v=a o ?v=b la fuerza (para probar). */
 const VARIANTE=(function(){
-  const v=new URLSearchParams(location.search).get('v')==='a'?'a':'b';
-  try{ localStorage.setItem('ab_variante',v); }catch(_){}
-  return v;
+  const q=new URLSearchParams(location.search).get('v');
+  try{
+    if(q==='a'||q==='b'){ localStorage.setItem('ab_variante',q); return q; }
+    let v=localStorage.getItem('ab_variante');
+    if(v!=='a'&&v!=='b'){ v=Math.random()<.5?'a':'b'; localStorage.setItem('ab_variante',v); }
+    return v;
+  }catch(_){ return (q==='a'||q==='b')?q:'a'; }
 })();
 try{ gtag('set','user_properties',{variante:VARIANTE}); }catch(_){}
 function track(name,params){ try{ if(window.gtag) gtag('event',name,Object.assign({variante:VARIANTE},params||{})) }catch(_){} }
@@ -829,7 +833,7 @@ function countSigns(){
 document.getElementById('yes').addEventListener('click',()=>{
   track('si_soy_yo',{tikun:current}); Sound.sfx('candado'); setStep('Paso 3 de 3 · Tu activación');
   if(VARIANTE==='b'){ setTimeout(()=>{ location.href=`capitulo.html?tikun=${current}`; },150); return; }
-  const act=document.getElementById('activacion'); act.classList.add('show');
+  const act=document.getElementById('activacion'); act.classList.add('show'); track('oferta_vista',{tikun:current});
   const cv=document.getElementById('chestVid'); if(cv){ cv.preload='auto'; cv.play().catch(()=>{}); }
   if(Sound.on){ Sound.hush(); const va=document.getElementById('voiceAudio'); if(va){ setTimeout(()=>{},0); va.play().then(()=>track('audio_ernesto_auto',{tikun:current})).catch(()=>{ const vb=document.getElementById('voice'); if(vb) vb.classList.add('nudge'); }); } }
   setURL(`?tikun=${current}#activacion`);
@@ -841,6 +845,7 @@ document.getElementById('notQuite').addEventListener('click',()=>{
 });
 document.getElementById('yes2').addEventListener('click',()=>{ track('si_tras_prueba',{tikun:current}); document.getElementById('yes').click(); });
 document.getElementById('seeOffer').addEventListener('click',()=>{ track('oferta_sin_reconocer',{tikun:current}); document.getElementById('yes').click(); });
+document.querySelectorAll('.buy').forEach(a=>a.addEventListener('click',()=>track('click_comprar',{ubicacion:a.dataset.ubicacion||'oferta',tikun:current})));
 /* El botón "Sí, soy yo" invita con un brillo verde cuando aparece en pantalla */
 new IntersectionObserver(e=>{ if(e[0].isIntersecting) setTimeout(()=>document.getElementById('yes').classList.add('nudge'),2500); },{threshold:.6}).observe(document.getElementById('yes'));
 /* Barra fija de compra en celular: visible mientras la oferta está en pantalla y el precio no */
